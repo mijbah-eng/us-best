@@ -1,0 +1,377 @@
+@use "mixins";
+@use "variables";
+
+//>>>>> Component Button Here <<<<<//
+.theme-btn {
+    display: inline-block;
+    position: relative;
+    padding: 13px 25px 13px 25px;
+    background-color: variables.$theme-color;
+    color: variables.$white !important;
+    font-family: variables.$body-font;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    z-index: 1;
+    overflow: hidden;
+    border: none;
+    transition: all 0.3s ease-in-out;
+    border-radius: 0;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    -o-border-radius: 0;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+
+    i {
+        padding: 4px;
+        background-color: variables.$white;
+        color: variables.$theme-color;
+        transition: all 0.4s;
+        -webkit-transition: all 0.4s;
+        -moz-transition: all 0.4s;
+        -ms-transition: all 0.4s;
+        -o-transition: all 0.4s;
+    }
+
+    &:before {
+        content: "";
+        background-color: variables.$theme-color-2;
+        width: 0;
+        height: 50%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        -webkit-transition: all 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+        transition: all 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+        -moz-transition: all 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+        -ms-transition: all 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+        -o-transition: all 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+    }
+
+    &:after {
+        content: "";
+        background-color: variables.$theme-color-2;
+        width: 0;
+        height: 50%;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        z-index: -1;
+        -webkit-transition: all 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+        transition: all 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+        -moz-transition: all 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+        -ms-transition: all 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+        -o-transition: all 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+    }
+
+    i {
+        margin-left: 10px;
+    }
+
+    &:hover {
+        background-color: variables.$theme-color-2;
+        color: variables.$white !important;
+
+        &::before,
+        &::after {
+            width: 100%;
+        } 
+    }
+
+    &.style2 {
+        padding: 20px 155px;
+        border-radius: 12px;
+        -webkit-border-radius: 12px;
+        -moz-border-radius: 12px;
+        -ms-border-radius: 12px;
+        -o-border-radius: 12px;
+
+        &:hover {
+            color: variables.$title-color !important;
+        }
+
+        @include mixins.breakpoint (max-md) {
+            padding: 21px 80px;
+        }
+    }
+
+    &.style3 {
+        padding: 13px 25px;
+        background: variables.$theme-color-2;
+        color: variables.$title-color;
+
+        &:before {
+            content: "";
+            background-color: variables.$title-color;
+            width: 0;
+            height: 50%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            -webkit-transition: all 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+            transition: all 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+            -moz-transition: all 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+            -ms-transition: all 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+            -o-transition: all 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+        }
+
+        &:after {
+            content: "";
+            background-color: variables.$title-color;
+            width: 0;
+            height: 50%;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            z-index: -1;
+            -webkit-transition: all 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+            transition: all 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+            -moz-transition: all 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+            -ms-transition: all 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+            -o-transition: all 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+        }
+
+        &:hover {
+            background: variables.$theme-color;
+            color: variables.$white !important;
+
+            &::before,
+            &::after {
+                width: 100%;
+            }
+        }
+    }
+
+
+    &.style4 {
+        background-color: variables.$theme-color;
+        color: variables.$white !important;
+        border: 1px solid variables.$theme-color;
+        border-radius: 0;
+        -webkit-border-radius: 0;
+        -moz-border-radius: 0;
+        -ms-border-radius: 0;
+        -o-border-radius: 0;
+
+        i {
+            padding: 4px;
+            background-color: transparent;
+            color: variables.$white;
+            transition: all 0.4s;
+            -webkit-transition: all 0.4s;
+            -moz-transition: all 0.4s;
+            -ms-transition: all 0.4s;
+            -o-transition: all 0.4s;
+        }
+
+        &:before {
+            content: "";
+            background-color: variables.$title-color;
+        }
+
+        &:after {
+            content: "";
+            background-color: variables.$title-color;
+        }
+
+
+        &:hover {
+            background-color: variables.$title-color;
+            color: variables.$white !important;
+            border: 1px solid variables.$theme-color;
+        }
+    }
+
+
+    &.style5 {
+        background-color: variables.$theme-color-2;
+        color: variables.$white !important;
+        border: 1px solid variables.$theme-color-2;
+        border-radius: 0;
+        -webkit-border-radius: 0;
+        -moz-border-radius: 0;
+        -ms-border-radius: 0;
+        -o-border-radius: 0;
+        -webkit-border-radius: 0;
+
+        i {
+            background-color: transparent;
+            color: variables.$white;
+        }
+
+        &:before {
+            content: "";
+            background-color: variables.$title-color;
+        }
+
+        &:after {
+            content: "";
+            background-color: variables.$title-color;
+        }
+
+        &:hover {
+            background-color: variables.$title-color;
+            color: variables.$white !important;
+            border: 1px solid variables.$theme-color;
+
+        }
+    }
+
+
+    &.style6 {
+        padding: 13px 40px;
+        border-radius: 100px;
+        background-color: rgba(235, 0, 41, 0.10);
+        color: variables.$theme-color!important; 
+        font-family: variables.$title-font;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        text-transform: uppercase;
+        border: none; 
+
+        i {
+            background-color: transparent;
+            color: variables.$theme-color;
+            margin-left: 5px;
+            padding: 0;
+        }
+
+        &:before {
+            content: "";
+            background-color: variables.$theme-color;
+        }
+
+        &:after {
+            content: "";
+            background-color: variables.$theme-color;
+        }
+
+        &:hover {
+            background-color: variables.$theme-color;
+            color: variables.$white !important;
+            border: none;
+
+            i {
+                color: variables.$white;
+            }
+
+        }
+    }
+
+
+    @include mixins.breakpoint (max-md) {
+        padding: 20px 32px;
+    }
+
+    @include mixins.breakpoint (max-sm) {
+        padding: 13px 25px;
+        font-size: 14px;
+    }
+}
+
+
+.arrow-btn {
+    display: inline-block;
+    position: absolute;
+    top: 7px;
+    right: -43px;
+    width: 43px;
+    height: 43px;
+    line-height: 43px;
+    text-align: center;
+    background: variables.$theme-color;
+    color: variables.$white;
+    margin-top: -0.4em;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    @include mixins.transition;
+
+    &:hover {
+        background: variables.$theme-color-2;
+        color: variables.$title-color;
+    }
+
+    &.style2 {
+        background: variables.$theme-color-2;
+        color: variables.$title-color;
+
+        &:hover {
+            background: variables.$theme-color;
+            color: variables.$white;
+        }
+    }
+}
+
+.btn-wrapper {
+    position: relative;
+    max-width: 200px;
+
+    &:hover {
+        .arrow-btn {
+            background: variables.$theme-color-2;
+            color: variables.$title-color;
+        }
+
+        .theme-btn {
+            background-color: variables.$theme-color-2;
+            color: variables.$title-color;
+        }
+    }
+
+    &:hover {
+        .arrow-btn {
+            &.style2 {
+                background: variables.$title-color;
+                color: variables.$white;
+            }
+        }
+
+        .theme-btn {
+            &.style3 {
+                background-color: variables.$title-color;
+                color: variables.$white;
+            }
+        }
+    }
+}
+
+.link-btn {
+    display: inline-block;
+    color: variables.$text-color;
+    text-align: center;
+    font-family: "DM Sans";
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: capitalize;
+
+    i {
+        margin-left: 10px;
+        transform: rotate(-40deg);
+        @include mixins.transition
+    }
+
+    &:hover {
+        color: variables.$theme-color-2;
+
+        i {
+            margin-left: 10px;
+            transform: rotate(0);
+        }
+    }
+}
+
+
+
+//>>>>> Component Button End <<<<<//

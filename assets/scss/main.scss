@@ -1,0 +1,144 @@
+/*-----------------------------------------------------------------
+Theme Name: Fresheat
+Author: Gramentheme
+Author URI: https://themeforest.net/user/gramentheme 
+Version: 1.0.0 
+Description: Fresheat food & Restaurant Html Template  <
+ 
+-------------------------------------------------------------------
+ CSS TABLE OF CONTENTS
+-------------------------------------------------------------------
+
+01.Mixins
+02.Variables
+03.Typography
+04.Buttons 
+05.Gutter 
+06.Container 
+07.Animation 
+08.Helping 
+09.MeanMenu 
+10.Preloader
+11.Title 
+12.Common 
+13.Header 
+14.Footer 
+15.Contact 
+16.Banner 
+17.Breadcumb
+18.Marquee
+19.Gallery
+20.Testimonial
+21.Chefe
+22.History 
+23.Timer
+24.Menu
+25.Cta
+26.Popular Dishes
+27.About
+28.Services
+29.Offer
+30.Food Items
+31.Faq
+32.Wcu
+33.Blog
+34.Blog Extra
+35.Sidebar
+36.Shop
+37.Cart
+38.Checkout
+39.Wishlist
+40.Woocommerce
+
+------------------------------------------------------------------*/
+
+
+//>> Basic Start <<//
+
+/* 01.Mixins */
+@use "_mixins";
+/* 02.Variables */
+@use "_variables";
+/* 03.Typography */
+@use "_typography";
+/* 04.Buttons */
+@use "_buttons";
+/* 05.Gutter */
+@use "_gutter";
+/* 06.Container */
+@use "_container";
+/* 07.Animation */
+@use "_animation"; 
+/* 08.Helping */
+@use "_helping"; 
+/* 09.MeanMenu */
+@use "_meanmenu";
+/* 10.Preloader */
+@use "_preloader";
+//>> Basic End <<//	
+
+
+//>> Template Section Style Start <<//  
+
+/* 11.Title */
+@use "_title";
+/* 12.Common */
+@use "_common";
+/* 13.Header */
+@use "_header"; 
+/* 14.Footer */
+@use "_footer"; 
+/* 15.Contact */
+@use "_contact"; 
+/* 16.Banner */
+@use "_banner";    
+/* 17.Breadcumb */
+@use "_breadcumb";
+/* 18.Marquee */
+@use "_marquee";
+/* 19.Gallery */
+@use "_gallery";
+/* 20.Testimonial */
+@use "_testimonial";
+/* 21.Chefe */
+@use "_chefe"; 
+/* 22.History */
+@use "_history";
+/* 23.Timer */
+@use "_timer";
+/* 24.Menu */
+@use "_menu";
+/* 25.Cta */
+@use "_cta";
+/* 26.Popular Dishes */
+@use "_popular-dishes.scss";
+/* 27.About */
+@use "_about";
+/* 28.Services */
+@use "_services";
+/* 29.Offer */  
+@use "_offer"; 
+/* 30.Food Items */  
+@use "_food-items";
+/* 31.Faq */  
+@use "_faq";
+/* 32.Wcu */  
+@use "_wcu";
+/* 33.Blog */
+@use "_blog";
+/* 34.Blog Extra */
+@use "_blog-extra";
+/* 35.Sidebar */
+@use "_sidebar"; 
+/* 36.Shop */
+@use "_shop"; 
+/* 37.Cart */
+@use "_cart"; 
+/* 38.Checkout */
+@use "_checkout"; 
+/* 39.Wishlist */
+@use "_wishlist"; 
+/* 40.Woocommerce */
+@use "_woocommerce"; 
+//>> Template Section Style End <<//
+

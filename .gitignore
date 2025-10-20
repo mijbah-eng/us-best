@@ -1,0 +1,15 @@
+# Ignore all .log files
+*.log
+
+# Ignore the build directory
+/build/
+
+# Ignore specific temporary files
+temp_file.txt
+*.tmp
+
+# Ignore IDE-specific files (e.g., for VS Code)
+.vscode/
+
+# Ignore node modules
+node_modules/
