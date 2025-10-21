@@ -339,10 +339,22 @@
 		background-color:variables.$white;
 		width: 100px;
 		padding: 10px 0; 
+		position: relative;
+		
 		img{
 			width: 100%;
 		}
 
+	.hours24 {
+		position: absolute;
+		top:0%;
+		left:-60%;
+		background-color: var(--theme2);
+		padding:2px 15px;
+		border-radius: 20px;
+		color: var(--body);
+		font-weight: bold
+	}
 		// @include mixins.breakpoint (max-xxxl) {
 		// 	padding: 35px 30px 43px 30px;
 		// }
