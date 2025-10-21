@@ -3683,10 +3683,10 @@ Description: Fresheat food & Restaurant Html Template  <
 }
 .main-header-wrapper .logo-image .hours24 {
   position: absolute;
-  top: 0%;
-  left: -60%;
+  top: 4%;
+  left: -50%;
   background-color: var(--theme2);
-  padding: 2px 15px;
+  padding: 0px 8px;
   border-radius: 20px;
   color: var(--body);
   font-weight: bold;
