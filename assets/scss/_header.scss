@@ -163,18 +163,26 @@
 		}
 	}
     .container-fluid {
-        padding: 0 150px;
+        // padding: 0 150px;
+		padding-left: 100px;
+		padding-right: 0px;
 
 		@include mixins.breakpoint (max-xl4){
-			padding: 0 50px;
+			// padding: 0 50px;
+			padding-left: 50px;
+			padding-right: 0px;
 		}
 
 		@include mixins.breakpoint (max-xxxl){
-			padding: 0 40px;
+			// padding: 0 40px;
+			padding-left: 40px;
+			padding-right: 0px;
 		}
 
 		@include mixins.breakpoint (max-xl){
-			padding: 0 30px;
+			// padding: 0 30px;
+			padding-left: 30px;
+			padding-right: 0px;
 		}
     }
 }
@@ -329,7 +337,8 @@
 	.logo-image{    
 		// padding: 35px 30px 43px 50px;
 		background-color:variables.$white;
-		width: 130px;
+		width: 100px;
+		padding: 10px 0; 
 		img{
 			width: 100%;
 		}
@@ -808,7 +817,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	padding: 10px 0;
+	padding: 22px 0;
 	
 	.main-menu {
 		ul {
