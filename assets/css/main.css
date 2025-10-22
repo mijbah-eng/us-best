@@ -4261,7 +4261,8 @@ Description: Fresheat food & Restaurant Html Template  <
   color: var(--theme);
 }
 .header-main .main-menu ul li .has-homemenu {
-  width: 710px;
+  width: 1000px;
+  height: 770px;
   padding: 30px 30px 10px 30px;
   opacity: 0;
   left: -250px;
@@ -4596,7 +4597,7 @@ Description: Fresheat food & Restaurant Html Template  <
 .sticky.header-1 .logo .hours24 {
   position: absolute;
   top: 12%;
-  left: -94%;
+  left: -105%;
   background-color: var(--theme2);
   padding: 0px 8px;
   border-radius: 9px;
@@ -12330,6 +12331,174 @@ Description: Fresheat food & Restaurant Html Template  <
 }
 .blog-details-area .blog-post-details .comment-form-wrap .form-clt textarea {
   padding-bottom: 100px;
+}
+
+/* 34.Order */
+/*-----------------------------------------------------------------
+Theme Name: Fresheat
+Author: Gramentheme
+Author URI: https://themeforest.net/user/gramentheme 
+Version: 1.0.0 
+Description: Fresheat food & Restaurant Html Template  <
+
+-------------------------------------------------------------------
+ CSS TABLE OF CONTENTS
+-------------------------------------------------------------------
+
+01.Mixins
+02.Variables
+03.Typography
+04.Buttons 
+05.Gutter 
+06.Container 
+07.Animation 
+08.Helping 
+09.MeanMenu 
+10.Preloader
+11.Title 
+12.Common 
+13.Header 
+14.Footer 
+15.Contact 
+16.Banner 
+17.Breadcumb
+18.Marquee
+19.Gallery
+20.Testimonial
+21.Chefe
+22.History 
+23.Timer
+24.Menu
+25.Cta
+26.Popular Dishes
+27.About
+28.Services
+29.Offer
+30.Food Items
+31.Faq
+32.Wcu
+33.Blog
+34.Blog Extra
+35.Sidebar
+36.Shop
+37.Cart
+38.Checkout
+39.Wishlist
+40.Woocommerce
+
+------------------------------------------------------------------*/
+/* 01.Mixins */
+/* 02.Variables */
+.order-wrapper {
+  border-radius: 30px;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  -ms-border-radius: 30px;
+  -o-border-radius: 30px;
+}
+
+.order-center {
+  display: flex;
+  align-items: center;
+}
+
+.order-thumb-bg {
+  position: absolute;
+  width: 99%;
+  height: 99%;
+  background-color: var(--theme2);
+  border-radius: 100%;
+  z-index: 1;
+}
+
+.order-card {
+  border-radius: 30px;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  -ms-border-radius: 30px;
+  -o-border-radius: 30px;
+}
+.order-card .logo {
+  margin-bottom: 60px;
+}
+.order-card h3 {
+  color: var(--title);
+  text-align: center;
+  font-family: var(--title-font);
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 50px;
+  text-transform: capitalize;
+  margin-bottom: 5px;
+}
+.order-card p {
+  color: var(--title);
+  text-align: center;
+  font-family: var(--body-font);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 26px;
+  margin-bottom: 50px;
+}
+.order-card h6 {
+  color: var(--title);
+  text-align: center;
+  font-family: var(--body-font);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 26px;
+  margin-top: 50px;
+}
+.order-card .form-ctl {
+  position: relative;
+}
+.order-card .form-ctl .icon {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+.order-thumb-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.custom-textarea {
+  background-color: white;
+  color: black;
+  padding-left: 20px;
+  border: 0.5px solid #898987;
+  border-radius: 5px;
+  width: 100%;
+  height: 120px;
+}
+
+.order-thumb {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 75%;
+}
+.order-thumb img {
+  width: 100%;
+  height: auto;
+  z-index: 2;
+}
+
+p {
+  color: var(--theme2);
+  font-family: var(--title-font);
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 1;
+  text-transform: capitalize;
+  margin-bottom: 10px;
 }
 
 /* 35.Sidebar */

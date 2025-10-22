@@ -970,7 +970,8 @@
 			}
 
 			.has-homemenu {
-				width: 710px;
+				width: 1000px;
+    			height: 770px;
 				padding: 30px 30px 10px 30px;
 				opacity: 0;
 				left: -250px;
@@ -1338,7 +1339,7 @@
 			.hours24 {
 				position: absolute;
 				top: 12%;
-   				left: -94%;
+   				left: -105%;
 				background-color: var(--theme2);
 				padding: 0px 8px;
 				border-radius: 9px;
