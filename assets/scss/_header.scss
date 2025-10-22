@@ -175,7 +175,7 @@
 
 		@include mixins.breakpoint (max-xxxl){
 			// padding: 0 40px;
-			padding-left: 40px;
+			padding-left: 60px;
 			padding-right: 0px;
 		}
 
@@ -338,7 +338,7 @@
 		// padding: 35px 30px 43px 50px;
 		background-color:variables.$white;
 		width: 100px;
-		padding: 10px 0; 
+		// padding: 10px 0; 
 		position: relative;
 		
 		img{
@@ -347,11 +347,11 @@
 
 	.hours24 {
 		position: absolute;
-		top: 4%;
-		left: -50%;
+		top: 20%;
+		left: -65%;
 		background-color: var(--theme2);
 		padding: 0px 8px;
-		border-radius: 20px;
+		border-radius: 9px;
 		color: var(--body);
 		font-weight: bold;
 	}
@@ -359,7 +359,8 @@
 		// 	padding: 35px 30px 43px 30px;
 		// }
 		@include mixins.breakpoint (max-xxl) {
-			padding: 35px 0px;
+			// padding: 35px 0px;
+			padding: 0px 0px;
 		}
 		@include mixins.breakpoint (max-xl) {
 			padding: 0px;
@@ -829,7 +830,15 @@
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+	// justify-content: flex-end;
 	padding: 22px 0;
+
+	.header-left {
+    width: 73%;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 35px;
+}
 	
 	.main-menu {
 		ul {
@@ -853,7 +862,8 @@
 				font-size: 17px;
 				font-weight: 600;
 				color:  variables.$white;
-				padding: 20px 0;
+				// padding: 20px 0;
+				padding: 0px 0;
 				text-align: left;
 				position: relative;
 				text-transform: capitalize;
@@ -1323,6 +1333,29 @@
         .logo {
 			width: 70px;
             display: block;
+			position: relative;
+			
+			.hours24 {
+				position: absolute;
+				top: 12%;
+   				left: -94%;
+				background-color: var(--theme2);
+				padding: 0px 8px;
+				border-radius: 9px;
+				color: var(--body);
+				font-weight: bold;
+			}
+			@include mixins.breakpoint (max-xxxl) {
+					.hours24 {
+					
+					top: 0%;
+					left: -65%;
+					padding: 0px 8px;
+					border-radius: 9px;
+					color: var(--body);
+					font-weight: bold;
+				}
+			}
 			a {
 				img{
 					width: 100%;

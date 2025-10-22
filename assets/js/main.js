@@ -244,6 +244,54 @@ JS TABLE OF CONTENTS
             });
         }
 
+        /*-----------------------------------
+            09. food Menu Slider     
+        -----------------------------------*/
+        if ($('.foodMenu-slider').length > 0) {
+            const foodMenuSlider = new Swiper(".foodMenu-slider", {
+                spaceBetween: 30,
+                speed: 2000,
+                loop: true,
+                autoplay: {
+                    delay: 2000,
+                    disableOnInteraction: false,
+                },
+                 navigation: {
+                    nextEl: ".arrow-next1",
+                    prevEl: ".arrow-prev1",
+                },
+                breakpoints: {
+                    1499: {
+                        slidesPerView: 6,
+                    },
+                    1399: {
+                        slidesPerView: 4,
+                    },
+                    1199: {
+                        slidesPerView: 4,
+                    },
+                    991: {
+                        slidesPerView: 4,
+                    },
+                    767: {
+                        slidesPerView: 3,
+                    },
+                    575: {
+                        slidesPerView: 2,
+                    },
+                    0: {
+                        slidesPerView: 2,
+                    },
+                },
+                pagination: {
+                    // el: '.bestFoodItems-pagination',
+                    clickable: false,
+                    // bulletClass: 'swiper-pagination-bullet', // Bullet class
+                    // bulletActiveClass: 'swiper-pagination-bullet-active', // Active bullet class
+                },
+            });
+        }
+
 
 
         /*-----------------------------------
