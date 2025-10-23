@@ -347,13 +347,18 @@
 
 	.hours24 {
 		position: absolute;
-		top: 20%;
-		left: -65%;
-		background-color: var(--theme2);
-		padding: 0px 8px;
-		border-radius: 9px;
-		color: var(--body);
-		font-weight: bold;
+		top: 0%;
+		left: -95%;
+		width: 80px;
+		@media (max-width: 992px) {
+        top: -45% !important;
+        left: 100% !important;
+		z-index: 10;
+}
+		img{
+			    width: 100%;
+    			object-fit: cover;
+		}
 	}
 		// @include mixins.breakpoint (max-xxxl) {
 		// 	padding: 35px 30px 43px 30px;
