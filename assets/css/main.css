@@ -164,10 +164,6 @@ input:focus {
   outline: none;
 }
 
-input::-moz-placeholder {
-  color: var(--text);
-}
-
 input::placeholder {
   color: var(--text);
 }
@@ -381,6 +377,7 @@ Description: Fresheat food & Restaurant Html Template  <
   top: 0;
   left: 0;
   z-index: -1;
+  -webkit-transition: all 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
   transition: all 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
   -moz-transition: all 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
   -ms-transition: all 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
@@ -395,6 +392,7 @@ Description: Fresheat food & Restaurant Html Template  <
   bottom: 0;
   right: 0;
   z-index: -1;
+  -webkit-transition: all 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
   transition: all 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
   -moz-transition: all 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
   -ms-transition: all 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
@@ -440,6 +438,7 @@ Description: Fresheat food & Restaurant Html Template  <
   top: 0;
   left: 0;
   z-index: -1;
+  -webkit-transition: all 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
   transition: all 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
   -moz-transition: all 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
   -ms-transition: all 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
@@ -454,6 +453,7 @@ Description: Fresheat food & Restaurant Html Template  <
   bottom: 0;
   right: 0;
   z-index: -1;
+  -webkit-transition: all 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
   transition: all 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
   -moz-transition: all 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
   -ms-transition: all 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
@@ -822,11 +822,23 @@ Description: Fresheat food & Restaurant Html Template  <
 ------------------------------------------------------------------*/
 /* 01.Mixins */
 /* 02.Variables */
-@keyframes rippleOne {
+@-webkit-keyframes rippleOne {
   70% {
+    -webkit-box-shadow: 0 0 0 40px rgba(244, 68, 56, 0);
     box-shadow: 0 0 0 40px rgba(244, 68, 56, 0);
   }
   100% {
+    -webkit-box-shadow: 0 0 0 0 rgba(244, 68, 56, 0);
+    box-shadow: 0 0 0 0 rgba(244, 68, 56, 0);
+  }
+}
+@keyframes rippleOne {
+  70% {
+    -webkit-box-shadow: 0 0 0 40px rgba(244, 68, 56, 0);
+    box-shadow: 0 0 0 40px rgba(244, 68, 56, 0);
+  }
+  100% {
+    -webkit-box-shadow: 0 0 0 0 rgba(244, 68, 56, 0);
     box-shadow: 0 0 0 0 rgba(244, 68, 56, 0);
   }
 }
@@ -839,6 +851,7 @@ Description: Fresheat food & Restaurant Html Template  <
   background-color: var(--theme);
   border: 1px solid var(--white);
   border-radius: 50%;
+  -webkit-box-shadow: 0 0 0 0 rgb(255, 255, 255);
   box-shadow: 0 0 0 0 rgb(255, 255, 255);
   animation: rippleOne 2s infinite;
 }
@@ -855,9 +868,26 @@ Description: Fresheat food & Restaurant Html Template  <
     transform: translateY(-10px);
   }
 }
+@-webkit-keyframes spinner {
+  to {
+    -webkit-transform: rotateZ(360deg);
+    transform: rotateZ(360deg);
+  }
+}
 @keyframes spinner {
   to {
+    -webkit-transform: rotateZ(360deg);
     transform: rotateZ(360deg);
+  }
+}
+@-webkit-keyframes letters-loading {
+  0%, 75%, 100% {
+    opacity: 0;
+    transform: rotateY(-90deg);
+  }
+  25%, 50% {
+    opacity: 1;
+    transform: rotateY(0deg);
   }
 }
 @keyframes letters-loading {
@@ -880,9 +910,13 @@ Description: Fresheat food & Restaurant Html Template  <
 }
 @keyframes tpswing {
   0% {
+    -webkit-transform: rotate(20deg);
+    -ms-transform: rotate(20deg);
     transform: rotate(20deg);
   }
   100% {
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
     transform: rotate(0deg);
   }
 }
@@ -892,6 +926,22 @@ Description: Fresheat food & Restaurant Html Template  <
   }
   100% {
     width: 100%;
+  }
+}
+@-webkit-keyframes width {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+@-webkit-keyframes loaderspin {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
   }
 }
 @keyframes loaderpulse {
@@ -918,51 +968,99 @@ Description: Fresheat food & Restaurant Html Template  <
   }
 }
 .float-bob-y {
+  -webkit-animation-name: float-bob-y;
   animation-name: float-bob-y;
+  -webkit-animation-duration: 3s;
   animation-duration: 3s;
+  -webkit-animation-iteration-count: infinite;
   animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
   animation-timing-function: linear;
 }
-@keyframes float-bob-y {
+
+@-webkit-keyframes float-bob-y {
   0% {
+    -webkit-transform: translateY(-30px);
     transform: translateY(-30px);
   }
   50% {
+    -webkit-transform: translateY(-10px);
     transform: translateY(-10px);
   }
   100% {
+    -webkit-transform: translateY(-30px);
+    transform: translateY(-30px);
+  }
+}
+@keyframes float-bob-y {
+  0% {
+    -webkit-transform: translateY(-30px);
+    transform: translateY(-30px);
+  }
+  50% {
+    -webkit-transform: translateY(-10px);
+    transform: translateY(-10px);
+  }
+  100% {
+    -webkit-transform: translateY(-30px);
     transform: translateY(-30px);
   }
 }
 .float-bob-x {
+  -webkit-animation-name: float-bob-x;
   animation-name: float-bob-x;
+  -webkit-animation-duration: 3s;
   animation-duration: 3s;
+  -webkit-animation-iteration-count: infinite;
   animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
   animation-timing-function: linear;
 }
-@keyframes float-bob-x {
+
+@-webkit-keyframes float-bob-x {
   0% {
+    -webkit-transform: translateX(0px);
     transform: translateX(30px);
   }
   50% {
+    -webkit-transform: translateX(10px);
     transform: translateX(10px);
   }
   100% {
+    -webkit-transform: translateX(30px);
+    transform: translateX(30px);
+  }
+}
+@keyframes float-bob-x {
+  0% {
+    -webkit-transform: translateX(30px);
+    transform: translateX(30px);
+  }
+  50% {
+    -webkit-transform: translateX(10px);
+    transform: translateX(10px);
+  }
+  100% {
+    -webkit-transform: translateX(30px);
     transform: translateX(30px);
   }
 }
 @keyframes bounce-x {
   0% {
+    -webkit-transform: translateX(0);
     transform: translateX(0);
   }
   50% {
+    -webkit-transform: translateX(30px);
     transform: translateX(30px);
   }
   100% {
+    -webkit-transform: translateX(0);
     transform: translateX(0);
   }
 }
 .bounce-x {
+  -webkit-animation: bounce-x 7s infinite linear;
   animation: bounce-x 7s infinite linear;
 }
 
@@ -1163,12 +1261,15 @@ Description: Fresheat food & Restaurant Html Template  <
   top: 50%;
   width: 60px;
   height: 60px;
+  -webkit-transform: translateX(-50%) translateY(-50%);
   transform: translateX(-50%) translateY(-50%);
   border-radius: 50%;
   box-shadow: 0 0 0 0 rgba(56, 75, 255, 0.5);
+  -webkit-animation: rippleOne 3s infinite;
   animation: rippleOne 3s infinite;
 }
 .ripple::before {
+  -webkit-animation-delay: 0.9s;
   animation-delay: 0.9s;
   content: "";
   position: absolute;
@@ -1176,6 +1277,7 @@ Description: Fresheat food & Restaurant Html Template  <
   bottom: 0;
 }
 .ripple::after {
+  -webkit-animation-delay: 0.6s;
   animation-delay: 0.6s;
   content: "";
   position: absolute;
@@ -1217,6 +1319,7 @@ Description: Fresheat food & Restaurant Html Template  <
   left: 0;
   right: 0;
   opacity: 0;
+  -webkit-transition: all 900ms linear;
   transition: all 900ms linear;
 }
 
@@ -1224,6 +1327,7 @@ Description: Fresheat food & Restaurant Html Template  <
   top: 0;
   bottom: 0;
   opacity: 0;
+  -webkit-transition: all 900ms linear;
   transition: all 900ms linear;
 }
 
@@ -1632,6 +1736,7 @@ Description: Fresheat food & Restaurant Html Template  <
   color: var(--white) !important;
 }
 .mean-container .mean-nav > ul .homemenu-items .homemenu .homemenu-thumb::before {
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(20, 19, 19, 0)), to(#5e5ef6));
   background: linear-gradient(to bottom, rgba(99, 92, 92, 0) 0%, #252527 100%);
   background-repeat: no-repeat;
   background-size: cover;
@@ -1643,6 +1748,7 @@ Description: Fresheat food & Restaurant Html Template  <
   top: 0;
   overflow: hidden;
   opacity: 0;
+  -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
   content: "";
 }
@@ -1808,7 +1914,7 @@ Description: Fresheat food & Restaurant Html Template  <
   animation: spinner 1s infinite linear;
   border-radius: 50%;
   border: 3px solid rgba(0, 0, 0, 0.2);
-  border-top-color: var(--theme);
+  border-top-color: var(--theme2);
   height: 9em;
   margin: 0 auto 3.5em auto;
   width: 9em;
@@ -1823,9 +1929,7 @@ Description: Fresheat food & Restaurant Html Template  <
 .preloader .animation-preloader .txt-loading {
   font: bold 5em var(--title-font), var(--body-font);
   text-align: center;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
+  user-select: none;
 }
 @media (max-width: 767px) {
   .preloader .animation-preloader .txt-loading {
@@ -1833,7 +1937,7 @@ Description: Fresheat food & Restaurant Html Template  <
   }
 }
 .preloader .animation-preloader .txt-loading .letters-loading {
-  color: var(--theme);
+  color: var(--theme2);
   position: relative;
 }
 .preloader .animation-preloader .txt-loading .letters-loading:nth-child(2):before {
@@ -1873,7 +1977,7 @@ Description: Fresheat food & Restaurant Html Template  <
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 8px;
-  color: var(--theme);
+  color: var(--theme2);
 }
 .preloader .loader {
   position: fixed;
@@ -2347,6 +2451,7 @@ Description: Fresheat food & Restaurant Html Template  <
   top: 1rem;
   max-height: 380px;
   content: "";
+  -webkit-transition: all 0.4s ease-in-out;
   transition: all 0.4s ease-in-out;
   z-index: 2;
   display: inline-block;
@@ -2389,6 +2494,7 @@ Description: Fresheat food & Restaurant Html Template  <
   display: inline-block;
   background: var(--white);
   color: var(--title);
+  -webkit-transition: all 0.4s ease-in-out;
   transition: all 0.4s ease-in-out;
   border-radius: 50%;
   -moz-transition: all 0.4s ease-in-out;
@@ -2607,6 +2713,7 @@ Description: Fresheat food & Restaurant Html Template  <
   top: 0;
   pointer-events: none;
   border-radius: 50%;
+  -webkit-transform: translateZ(0);
   transform: translateZ(0);
   visibility: hidden;
 }
@@ -2616,6 +2723,8 @@ Description: Fresheat food & Restaurant Html Template  <
   height: 6px;
   z-index: 10000001;
   background-color: var(--theme2);
+  -webkit-transition: width 0.3s ease-in-out, height 0.3s ease-in-out, margin 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  -o-transition: width 0.3s ease-in-out, height 0.3s ease-in-out, margin 0.3s ease-in-out, opacity 0.3s ease-in-out;
   transition: width 0.3s ease-in-out, height 0.3s ease-in-out, margin 0.3s ease-in-out, opacity 0.3s ease-in-out;
 }
 .cursor-inner.cursor-hover {
@@ -2633,9 +2742,12 @@ Description: Fresheat food & Restaurant Html Template  <
   width: 30px;
   height: 30px;
   border: 1px solid var(--theme2);
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   z-index: 10000000;
   opacity: 0.5;
+  -webkit-transition: all 0.08s ease-out;
+  -o-transition: all 0.08s ease-out;
   transition: all 0.08s ease-out;
 }
 .cursor-outer.cursor-hover {
@@ -2703,6 +2815,8 @@ Description: Fresheat food & Restaurant Html Template  <
   margin-top: var(--blog-space-y, 50px);
   padding: 60px;
   position: relative;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
   border-radius: 0;
   background: var(--bg2);
   border: 0;
@@ -2765,6 +2879,8 @@ input[type=checkbox] {
   vertical-align: middle;
   width: 0;
   height: 0;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
   border-radius: 10px;
 }
 
@@ -2802,6 +2918,9 @@ input[type=checkbox] ~ label:after {
   height: 8px;
   width: 8px;
   opacity: 0;
+  -webkit-transition: 0.4s;
+  -o-transition: 0.4s;
+  -moz-transition: 0.4s;
   transition: 0.4s;
   z-index: 9;
 }
@@ -2818,6 +2937,8 @@ input[type=checkbox].style2 ~ label:before {
   height: 14px;
   width: 14px;
   line-height: 14px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
   border-radius: 3px;
   top: 6px;
 }
@@ -2859,10 +2980,15 @@ input[type=radio] ~ label::before {
   line-height: 19px;
   text-align: center;
   border: 1px solid var(--theme);
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
   border-radius: 100%;
   font-weight: 700;
   background: var(--white);
   color: transparent;
+  -webkit-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
   transition: all 0.2s ease;
 }
 
@@ -2938,12 +3064,6 @@ input[type=radio]:checked ~ label::before {
   background-color: var(--theme);
 }
 
-input.main-search-input::-moz-placeholder {
-  color: var(--theme);
-  opacity: 1;
-  font-size: 25px;
-}
-
 input.main-search-input::placeholder {
   color: var(--theme);
   opacity: 1;
@@ -2951,9 +3071,6 @@ input.main-search-input::placeholder {
 }
 
 @media (max-width: 575px) {
-  input.main-search-input::-moz-placeholder {
-    font-size: 18px;
-  }
   input.main-search-input::placeholder {
     font-size: 18px;
   }
@@ -4009,7 +4126,7 @@ Description: Fresheat food & Restaurant Html Template  <
 }
 @media (max-width: 1899px) {
   .header-1 .header-main .main-menu ul li .has-homemenu {
-    left: -50px;
+    left: -454px;
   }
 }
 .header-1.sticky .mega-menu-wrapper {
@@ -4196,7 +4313,7 @@ Description: Fresheat food & Restaurant Html Template  <
 }
 .header-main .main-menu ul li .submenu {
   position: absolute;
-  top: 100%;
+  top: 206%;
   inset-inline-start: 0;
   min-width: 240px;
   background: var(--white);
@@ -4223,14 +4340,11 @@ Description: Fresheat food & Restaurant Html Template  <
   font-size: 17px;
   font-weight: 600;
   color: var(--title);
-  padding: 0 25px;
-  padding-bottom: 11px;
-  padding-top: 11px;
   width: 100%;
   border-bottom: 1px solid #eeeeee;
 }
 .header-main .main-menu ul li .submenu li a:hover {
-  color: var(--white) !important;
+  color: var(--theme) !important;
 }
 .header-main .main-menu ul li .submenu li:last-child a {
   border: none;
@@ -4249,6 +4363,10 @@ Description: Fresheat food & Restaurant Html Template  <
   color: var(--theme);
 }
 .header-main .main-menu ul li .submenu li:hover > .submenu {
+  -webkit-transform: translateY(1);
+  -moz-transform: translateY(1);
+  -ms-transform: translateY(1);
+  -o-transform: translateY(1);
   transform: translateY(1);
   visibility: visible;
   opacity: 1;
@@ -4257,17 +4375,85 @@ Description: Fresheat food & Restaurant Html Template  <
   position: absolute;
   top: 50%;
   inset-inline-end: 25px;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
   transform: translateY(-50%);
   color: var(--theme);
 }
 .header-main .main-menu ul li .has-homemenu {
   width: 1000px;
-  height: 770px;
   padding: 30px 30px 10px 30px;
   opacity: 0;
   left: -250px;
   visibility: hidden;
   padding: 30px 30px 10px 30px;
+}
+.header-main .main-menu ul li .has-homemenu .theme-btn {
+  width: 230px;
+  padding: 15px 38px;
+}
+@media (min-width: 1200px) {
+  .header-main .main-menu ul li .has-homemenu .mega-menu-box {
+    margin-bottom: 25px;
+  }
+}
+@media (min-width: 768px) {
+  .header-main .main-menu ul li .has-homemenu .mega-menu-box .mega-menu-media {
+    display: table;
+    width: 100%;
+  }
+}
+@media (min-width: 768px) {
+  .header-main .main-menu ul li .has-homemenu .mega-menu-box .mega-menu-media .mega-menu-media-img {
+    display: table-cell;
+    width: 120px;
+    vertical-align: top;
+  }
+}
+.header-main .main-menu ul li .has-homemenu .mega-menu-box .mega-menu-media .mega-menu-media-img .mega-menu-thumbnail:hover > a::before {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+@media (min-width: 768px) {
+  .header-main .main-menu ul li .has-homemenu .mega-menu-box .mega-menu-media .mega-menu-media-img .mega-menu-thumbnail {
+    margin-bottom: 0;
+  }
+}
+.header-main .main-menu ul li .has-homemenu .mega-menu-box .mega-menu-media .mega-menu-media-img .mega-menu-thumbnail a {
+  position: relative;
+  display: block;
+}
+.header-main .main-menu ul li .has-homemenu .mega-menu-box .mega-menu-media .mega-menu-media-img .mega-menu-thumbnail a ::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  content: "";
+  background-color: rgba(0, 0, 0, 0);
+  transition: background-color 0.2s ease-in-out;
+}
+.header-main .main-menu ul li .has-homemenu .mega-menu-box .mega-menu-media .mega-menu-media-info {
+  display: table-cell;
+  padding-left: 20px;
+  vertical-align: top;
+}
+.header-main .main-menu ul li .has-homemenu .mega-menu-box .mega-menu-media .mega-menu-media-info .mega-menu-heading {
+  font-size: 18px;
+  color: #212121;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.header-main .main-menu ul li .has-homemenu .mega-menu-box .mega-menu-media .mega-menu-media-info .mega-menu-heading a {
+  color: #212121;
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
+}
+.header-main .main-menu ul li .has-homemenu .mega-menu-box .mega-menu-media .mega-menu-media-info .mega-menu-desc {
+  color: #666;
+  font-size: 15px;
+  line-height: 1.5;
 }
 .header-main .main-menu ul li .has-homemenu .homemenu-items {
   display: flex;
@@ -4321,6 +4507,7 @@ Description: Fresheat food & Restaurant Html Template  <
   background-color: var(--theme2);
 }
 .header-main .main-menu ul li .has-homemenu .homemenu-items .homemenu .homemenu-thumb::before {
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(20, 19, 19, 0)), to(#5e5ef6));
   background: linear-gradient(to bottom, rgba(99, 92, 92, 0) 0%, #252527 100%);
   background-repeat: no-repeat;
   background-size: cover;
@@ -4332,6 +4519,7 @@ Description: Fresheat food & Restaurant Html Template  <
   top: 0;
   overflow: hidden;
   opacity: 0;
+  -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
   content: "";
 }
@@ -4565,6 +4753,7 @@ Description: Fresheat food & Restaurant Html Template  <
   transition: all 0.9s;
   background-color: var(--white);
   box-shadow: var(--box-shadow);
+  -webkit-animation: 500ms ease-in-out 0s normal none 1 running fadeInDown;
   animation: 500ms ease-in-out 0s normal none 1 running fadeInDown;
 }
 .sticky .logo-image img {
@@ -4669,7 +4858,13 @@ Description: Fresheat food & Restaurant Html Template  <
   top: 0;
   width: 400px;
   height: 100%;
+  -webkit-transform: translateX(calc(100% + 80px));
+  -moz-transform: translateX(calc(100% + 80px));
+  -ms-transform: translateX(calc(100% + 80px));
+  -o-transform: translateX(calc(100% + 80px));
   transform: translateX(calc(100% + 80px));
+  -webkit-transition: transform 0.45s ease-in-out, opacity 0.45s ease-in-out;
+  -moz-transition: transform 0.45s ease-in-out, opacity 0.45s ease-in-out;
   transition: transform 0.45s ease-in-out, opacity 0.45s ease-in-out;
   z-index: 1040;
   overflow-y: scroll;
@@ -4682,6 +4877,10 @@ Description: Fresheat food & Restaurant Html Template  <
 
 .offcanvas__info.info-open {
   opacity: 1;
+  -webkit-transform: translateX(0);
+  -moz-transform: translateX(0);
+  -ms-transform: translateX(0);
+  -o-transform: translateX(0);
   transform: translateX(0);
 }
 
@@ -4773,6 +4972,7 @@ Description: Fresheat food & Restaurant Html Template  <
   background: transparent;
   color: var(--text);
   border-radius: 50%;
+  -webkit-transition: all 0.4s ease-in-out;
   transition: all 0.4s ease-in-out;
   text-align: center;
   border: 1px solid var(--border);
@@ -4934,8 +5134,7 @@ Description: Fresheat food & Restaurant Html Template  <
 .breadcrumb-wrapper .breadcrumb-wrapper-items .breadcrumb-image img {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 .error-items {
@@ -5225,9 +5424,6 @@ Description: Fresheat food & Restaurant Html Template  <
   border-bottom: 1px solid rgba(255, 255, 255, 0.55);
   padding-bottom: 20px;
 }
-.footer-widgets-wrapper .single-footer-widget .widget-head .footer-input input::-moz-placeholder {
-  color: rgba(255, 255, 255, 0.69);
-}
 .footer-widgets-wrapper .single-footer-widget .widget-head .footer-input input::placeholder {
   color: rgba(255, 255, 255, 0.69);
 }
@@ -5280,9 +5476,6 @@ Description: Fresheat food & Restaurant Html Template  <
   width: 100%;
   border-radius: 8px;
   border: 1px solid rgba(255, 255, 255, 0.3);
-  color: rgba(255, 255, 255, 0.8);
-}
-.footer-widgets-wrapper .single-footer-widget .footer-content .footer-input input::-moz-placeholder {
   color: rgba(255, 255, 255, 0.8);
 }
 .footer-widgets-wrapper .single-footer-widget .footer-content .footer-input input::placeholder {
@@ -5570,8 +5763,7 @@ Description: Fresheat food & Restaurant Html Template  <
 .contact-form-wrapper.style2 .contact-form-thumb img {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 .contact-form.style1 {
@@ -8641,8 +8833,7 @@ Description: Fresheat food & Restaurant Html Template  <
 .food-menu-tab-wrapper.style2 .menuthumb img {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 .food-menu-tab-wrapper.style3 {
   position: relative;
@@ -10574,8 +10765,7 @@ Description: Fresheat food & Restaurant Html Template  <
 .offer-card.style1 .offer-thumb .thumbImg {
   width: 276px;
   height: 260px;
-  -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
 }
 @media (max-width: 1600px) {
   .offer-card.style1 .offer-thumb .thumbImg {
@@ -12322,9 +12512,6 @@ Description: Fresheat food & Restaurant Html Template  <
   padding: 16px 20px;
   font-weight: 500;
 }
-.blog-details-area .blog-post-details .comment-form-wrap .form-clt input::-moz-placeholder, .blog-details-area .blog-post-details .comment-form-wrap .form-clt textarea::-moz-placeholder {
-  color: var(--text);
-}
 .blog-details-area .blog-post-details .comment-form-wrap .form-clt input::placeholder,
 .blog-details-area .blog-post-details .comment-form-wrap .form-clt textarea::placeholder {
   color: var(--text);
@@ -12463,7 +12650,7 @@ Description: Fresheat food & Restaurant Html Template  <
 
 .order-thumb-title {
   font-size: 2.5rem;
-  font-weight: 700;
+  font-weight: 900;
   line-height: 1.2;
 }
 
@@ -12986,6 +13173,8 @@ Description: Fresheat food & Restaurant Html Template  <
 .sort-bar {
   padding: 0;
   margin: 0 0 10px 0;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
   border-radius: 5px;
 }
 
@@ -12997,6 +13186,7 @@ Description: Fresheat food & Restaurant Html Template  <
   height: 46px;
   line-height: 46px;
   border: 1px solid #E8E8E8;
+  width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
   min-width: 209px;
@@ -13207,8 +13397,7 @@ Description: Fresheat food & Restaurant Html Template  <
 .main-sidebar2 .single-sidebar-widget .recent-post-area .recent-items .recent-thumb img {
   width: 78px;
   height: 79px;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 .main-sidebar2 .single-sidebar-widget .recent-post-area .recent-items .recent-content ul {
   list-style-type: none;
@@ -13697,9 +13886,6 @@ Description: Fresheat food & Restaurant Html Template  <
   padding: 0;
   /* Firefox */
 }
-.cart_table .qty-input::-moz-placeholder {
-  color: var(--title);
-}
 .cart_table .qty-input::placeholder {
   color: var(--title);
 }
@@ -13736,7 +13922,6 @@ Description: Fresheat food & Restaurant Html Template  <
 .cart_table .th-cart-coupon .th-btn {
   font-size: 16px;
   padding: 20px 25px;
-  width: -moz-max-content;
   width: max-content;
 }
 
@@ -13844,7 +14029,6 @@ Description: Fresheat food & Restaurant Html Template  <
     margin-top: 10px;
     margin-right: 0;
     display: block;
-    width: -moz-max-content;
     width: max-content;
     margin-left: auto;
     margin-right: auto;
@@ -14041,7 +14225,6 @@ span.select2-selection.select2-selection--single:focus {
 .shipping-calculator-form .as-btn {
   font-size: 14px;
   padding: 0 20px;
-  width: -moz-max-content;
   width: max-content;
   height: 40px;
 }
@@ -14710,7 +14893,6 @@ table.variations del,
 }
 
 table.variations {
-  width: -moz-max-content;
   width: max-content;
   position: relative;
 }
@@ -14719,11 +14901,9 @@ table.variations td {
 }
 table.variations td.label {
   padding-right: 10px;
-  width: -moz-max-content;
   width: max-content;
 }
 table.variations select {
-  width: -moz-max-content;
   width: max-content;
   font-weight: 400;
   line-height: 1.5;
@@ -14786,11 +14966,9 @@ table.woocommerce-product-attributes {
 #woosq-popup .single-product .product .actions > div {
   height: auto;
   overflow: visible;
-  width: -moz-max-content;
   width: max-content;
 }
 #woosq-popup .single-product .product .actions > div .quantity.style2.woocommerce-grouped-product-list-item__quantity {
-  width: -moz-max-content;
   width: max-content;
 }
 
