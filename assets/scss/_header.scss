@@ -1529,7 +1529,7 @@
 .offcanvas__logo {
 	a {
 		img {
-			width: 150px;
+			width: 80px;
 		}
 	}
 }
@@ -1565,12 +1565,12 @@
 		}
  
 		.offcanvas__close {
-			width: 45px;
-			height: 45px;
-			line-height: 45px;
+			width: 40px;
+			height: 40px;
+			line-height: 41px;
 			text-align: center;
 			border-radius: 50%;
-			background-color: variables.$theme-color;
+			background-color: var(--theme);
 			position: relative;
 			z-index: 9;
 			cursor: pointer;
