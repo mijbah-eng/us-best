@@ -1421,23 +1421,17 @@
 			
 			.hours24 {
 				position: absolute;
-				top: 12%;
-   				left: -105%;
-				background-color: var(--theme2);
-				padding: 0px 8px;
-				border-radius: 9px;
-				color: var(--body);
-				font-weight: bold;
-			}
-			@include mixins.breakpoint (max-xxxl) {
-					.hours24 {
-					
-					top: 0%;
-					left: -65%;
-					padding: 0px 8px;
-					border-radius: 9px;
-					color: var(--body);
-					font-weight: bold;
+				top: 0%;
+				left: -111%;
+				width: 80px;
+				
+				img{
+					width: 100%;
+					object-fit: cover;
+				}
+				@media (max-width: 992px) {
+					    top: -45% !important;
+					left: 100% !important;
 				}
 			}
 			a {

@@ -249,7 +249,7 @@ JS TABLE OF CONTENTS
         -----------------------------------*/
         if ($('.foodMenu-slider').length > 0) {
             const foodMenuSlider = new Swiper(".foodMenu-slider", {
-                spaceBetween: 30,
+                spaceBetween: 0,
                 speed: 2000,
                 loop: true,
                 autoplay: {
@@ -262,7 +262,7 @@ JS TABLE OF CONTENTS
                 },
                 breakpoints: {
                     1499: {
-                        slidesPerView: 6,
+                        slidesPerView: 3,
                     },
                     1399: {
                         slidesPerView: 4,

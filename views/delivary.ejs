@@ -1,0 +1,186 @@
+<!--<< Header Area >>-->
+<%- include('head'); -%>
+
+<body class="bg-color2">
+
+    <!-- Preloader Start -->
+    <%- include('preloader'); -%>
+
+    <!--<< Mouse Cursor Start >>-->
+    <div class="mouse-cursor cursor-outer"></div>
+    <div class="mouse-cursor cursor-inner"></div>
+
+    <!-- Back To Top Start -->
+    <button id="back-top" class="back-to-top">
+        <i class="fa-regular fa-arrow-up"></i>
+    </button>
+
+    <!-- Offcanvas Area Start -->
+    <%- include('offcanvas'); -%>
+
+    <!-- Header Section Start -->
+    <%- include('header'); -%>
+
+
+    <!-- Search Area Start -->
+    <div class="search-wrap">
+        <div class="search-inner">
+            <i class="fas fa-times search-close" id="search-close"></i>
+            <div class="search-cell">
+                <form method="get">
+                    <div class="search-field-holder">
+                        <input type="search" class="main-search-input" placeholder="Search...">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Breadcumb Section   S T A R T -->
+    <div class="breadcumb-section">
+        <div class="breadcumb-wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="breadcumb-content">
+                            <h1 class="breadcumb-title">FOOD MENU 02</h1>
+                            <ul class="breadcumb-menu">
+                                <li><a href="index.html">Home</a></li>
+                                <li class="text-white">/</li>
+                                <li class="active">FOOD MENU 02</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Popular Dishes Section   S T A R T -->
+    <section class="popular-dishes-section fix section-padding">
+        <div class="popular-dishes-wrapper style1">
+            <div class="shape1 d-none d-xxl-block"><img src="/img/shape/popularDishesShape1_1.png" alt="shape">
+            </div>
+            <div class="shape2 float-bob-y d-none d-xxl-block"><img src="/img/shape/popularDishesShape1_2.png"
+                    alt="shape"></div>
+            <div class="container">
+                <div class="row gy-4 mb-4">
+                <div class="col-lg-5">
+                    <div class="gallery-thumb style2">
+                        <a href="/delivary">
+                            <img src="/img/delivary/U-01.png" alt="thumb">
+                            <div class="icon"><img src="/img/icon/arrow_icon.png" alt="icon"></div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="gallery-thumb style2">
+                        <a href="/delivary">
+                            <img src="/img/delivary/D-01.png" alt="thumb">
+                            <div class="icon"><img src="/img/icon/arrow_icon.png" alt="icon"></div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog  modal-dialog-centered">
+                <div class="modal-content pb-3 pe-3">
+                    <div class="modal-header border-0">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container">
+                            <div class="row gy-5">
+                                <div class="col-xxl-6">
+                                    <div class="modal-thumb">
+                                        <div class="product-big-img bg-color2">
+                                            <div class="dishes-thumb">
+                                                <img class="img-fluid" src="/img/dishes/dishes3_1.png"
+                                                    alt="thumb">
+                                                <div class="circle-shape"><img class="cir36"
+                                                        src="/img/food-items/circleShape2.png" alt="shape"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xxl-6">
+                                    <div class="modal-details">
+                                        <div class="product-about">
+                                            <div class="title-wrapper">
+                                                <h2 class="product-title">Chicken Pizza</h2>
+                                                <div class="price">$69</div>
+                                            </div>
+
+                                            <div class="product-rating">
+                                                <div class="star-rating" role="img" aria-label="Rated 5.00 out of 5">
+                                                    <span style="width:100%">Rated <strong class="rating">5.00</strong>
+                                                        out of 5 based on <span class="rating">1</span> customer
+                                                        rating</span>
+                                                </div>
+                                                <a href="shop-details.html" class="woocommerce-review-link">(<span
+                                                        class="count">2</span> customer reviews)</a>
+                                            </div>
+                                            <p class="text">Aliquam hendrerit a augue insuscipit. Etiam aliquam massa
+                                                quis des mauris commodo venenatis ligula commodo leez sed blandit
+                                                convallis dignissim onec vel pellentesque neque.</p>
+
+                                            <div class="actions">
+                                                <div class="quantity">
+                                                    <p>Quantity</p>
+
+                                                    <div class="qty-wrapper">
+                                                        <button class="quantity-plus qty-btn"><i
+                                                                class="fa-solid fa-plus"></i></button>
+                                                        <input type="number" class="qty-input" step="1" min="1"
+                                                            max="100" name="quantity" value="1" title="Qty">
+                                                        <button class="quantity-minus qty-btn"><i
+                                                                class="fa-solid fa-minus"></i></button>
+                                                    </div>
+                                                </div>
+                                                <a href="/cart" class="theme-btn">Add to Cart<i
+                                                        class="fa-regular fa-cart-shopping bg-transparent text-white"></i></a>
+                                                <a href="wishlist.html" class="theme-btn style5 border-0">ADD TO
+                                                    wishlist<i class="fa-sharp fa-solid fa-heart"></i></a>
+                                            </div>
+                                            <div class="share">
+                                                <h6>share with friends</h6>
+                                                <ul class="social-media">
+                                                    <li> <a href="https://www.facebook.com"> <i
+                                                                class="fa-brands fa-facebook-f"></i> </a> </li>
+                                                    <li> <a href="https://www.youtube.com"> <i
+                                                                class="fa-brands fa-youtube"></i> </a> </li>
+                                                    <li> <a href="https://www.x.com"> <i
+                                                                class="fa-brands fa-twitter"></i> </a> </li>
+                                                    <li> <a href="https://www.instagram.com"> <i
+                                                                class="fa-brands fa-instagram"></i> </a> </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+
+    <!-- Footer Section    S T A R T -->
+    <%- include('footer'); -%>
+
+
+
+    <!--<< All JS Plugins >>-->
+    <%- include('script'); -%>
+</body>
+
+</html>
