@@ -32,8 +32,8 @@ app.get("/checkout", (req, res) => {
 app.get("/blog", (req, res) => {
     res.render("blog")
 })
-app.get("/delivary", (req, res) => {
-    res.render("delivary")
+app.get("/delivery", (req, res) => {
+    res.render("delivery")
 })
 
 app.listen(port, () => {
