@@ -3781,7 +3781,7 @@ Description: Fresheat food & Restaurant Html Template  <
 }
 @media (max-width: 1199px) {
   .main-header-wrapper {
-    padding: 15px 0;
+    padding: 3px 0;
   }
 }
 @media (max-width: 767px) {
@@ -3805,7 +3805,7 @@ Description: Fresheat food & Restaurant Html Template  <
 }
 @media (max-width: 992px) {
   .main-header-wrapper .logo-image .hours24 {
-    top: -45% !important;
+    top: -20% !important;
     left: 100% !important;
     z-index: 10;
   }
@@ -4272,6 +4272,11 @@ Description: Fresheat food & Restaurant Html Template  <
   align-items: center;
   justify-content: space-between;
   padding: 22px 0;
+}
+@media (max-width: 1200px) {
+  .header-main {
+    padding: 15px 0;
+  }
 }
 .header-main .header-left {
   width: 73%;
