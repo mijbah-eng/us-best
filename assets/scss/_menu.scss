@@ -1,6 +1,24 @@
 @use "mixins";
 @use "variables";
 
+
+.food-menu-section{
+
+     position: relative;
+        .shape1 {
+    position: absolute;
+    bottom: -70px;
+    left: 0;
+    z-index: 1;
+}
+.shape2 {
+    position: absolute;
+    top: 50px;
+    right: 0;
+    z-index: 1;
+}
+}
+
 .food-menu-wrapper {
 
     &.style2 {
@@ -37,8 +55,8 @@
 
 .food-menu-tab-wrapper {
     &.style-bg {
-        background-color: variables.$white;
-        border-radius: 20px;
+        // background-color: variables.$white;
+        // border-radius: 20px;
         padding: 75px 130px;
 
         @include mixins.breakpoint (max-lg){
