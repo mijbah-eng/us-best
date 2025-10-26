@@ -3187,6 +3187,15 @@ input.main-search-input::placeholder {
   -ms-border-radius: 50%;
   -o-border-radius: 50%;
 }
+.modal .modal-content .modal-body .actions2 {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+}
+.modal .modal-content .modal-body .quantity2 {
+  margin: 0;
+}
 
 .dark-mood h2 {
   color: var(--white) !important;
@@ -4423,14 +4432,13 @@ Description: Fresheat food & Restaurant Html Template  <
     width: 120px;
     vertical-align: top;
   }
+  .header-main .main-menu ul li .has-homemenu .mega-menu-box .mega-menu-media .mega-menu-media-img img {
+    width: 100%;
+    height: auto;
+  }
 }
 .header-main .main-menu ul li .has-homemenu .mega-menu-box .mega-menu-media .mega-menu-media-img .mega-menu-thumbnail:hover > a::before {
   background-color: rgba(0, 0, 0, 0.2);
-}
-@media (min-width: 768px) {
-  .header-main .main-menu ul li .has-homemenu .mega-menu-box .mega-menu-media .mega-menu-media-img .mega-menu-thumbnail {
-    margin-bottom: 0;
-  }
 }
 .header-main .main-menu ul li .has-homemenu .mega-menu-box .mega-menu-media .mega-menu-media-img .mega-menu-thumbnail a {
   position: relative;
@@ -4445,6 +4453,14 @@ Description: Fresheat food & Restaurant Html Template  <
   content: "";
   background-color: rgba(0, 0, 0, 0);
   transition: background-color 0.2s ease-in-out;
+}
+.header-main .main-menu ul li .has-homemenu .mega-menu-box .mega-menu-media .mega-menu-media-img .mega-menu-thumbnail a ::before ::hover {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+@media (min-width: 768px) {
+  .header-main .main-menu ul li .has-homemenu .mega-menu-box .mega-menu-media .mega-menu-media-img .mega-menu-thumbnail {
+    margin-bottom: 0;
+  }
 }
 .header-main .main-menu ul li .has-homemenu .mega-menu-box .mega-menu-media .mega-menu-media-info {
   display: table-cell;

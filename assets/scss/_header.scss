@@ -1012,18 +1012,18 @@
 							display: table-cell;
 							width: 120px;
 							vertical-align: top;
+
+							img{
+								width: 100%;
+								height: auto;
+							}
 						  }
 
 						  .mega-menu-thumbnail:hover > a::before {
     background-color: rgba(0, 0, 0, 0.2);
-}
+} 
 						  .mega-menu-thumbnail{
-
-							@media (min-width: 768px) {
-									margin-bottom: 0;	
-								}
-
-								a {
+							a {
 									position: relative;
 									display: block;
 								
@@ -1037,9 +1037,20 @@
 										background-color: rgba(0, 0, 0, 0);
 										transition: background-color 0.2s 
 									ease-in-out;
+										::hover{
+										background-color: rgba(0, 0, 0, 0.2);
+												}
 									}
 
 								}
+
+								
+
+							@media (min-width: 768px) {
+									margin-bottom: 0;	
+								}
+
+								
 
 						  }
 						}

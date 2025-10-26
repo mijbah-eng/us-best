@@ -1057,6 +1057,18 @@ input.main-search-input::placeholder {
 				-o-border-radius: 50%;
 			}
 		}
+
+		.modal-body{
+			.actions2{
+				display: flex;
+				justify-content: flex-end;
+				align-items: center;
+				gap: 10px;
+			}
+			.quantity2{
+				margin: 0;
+			}
+		}
 	}
 }
 
