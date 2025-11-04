@@ -262,7 +262,7 @@ JS TABLE OF CONTENTS
                 },
                 breakpoints: {
                     1499: {
-                        slidesPerView: 3,
+                        slidesPerView: 4,
                     },
                     1399: {
                         slidesPerView: 4,
