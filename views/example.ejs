@@ -10,8 +10,34 @@
 </head>
 
 <body>
-   <%- include('nav'); -%>
+<!-- 1 -->
+      <% data.forEach(item => { %>
+    <div class="slide-item">
+        <h3><%= item.title %> - <%= item.page %></h3>
+        <p>Subtitle: <%= item.subtitle %></p>
 
+        <% if (item.image) { %>
+        <img src="https://admin.foodstek.com/upload/slider/<%= item.image %>" alt="<%= item.title %>" width="200">
+        <% } %>
+
+        <% if (item.image2) { %>
+        <img src="https://admin.foodstek.com/upload/slider/<%= item.image2 %>" alt="<%= item.title %>" width="200">
+        <% } %>
+
+        <% if (item.image3) { %>
+        <img src="https://admin.foodstek.com/upload/slider/<%= item.image3 %>" alt="<%= item.title %>" width="200">
+      <% } %>
+    </div>
+    <% }); %>
+<!-- 2 -->
+<img src="https://admin.foodstek.com/upload/slider/<%= data[0].image %>" alt="Image 1" width="200">
+<img src="https://admin.foodstek.com/upload/slider/<%= data[0].image2 %>" alt="Image 2" width="200">
+<img src="https://admin.foodstek.com/upload/slider/<%= data[0].image3 %>" alt="Image 3" width="200">
+<!-- 3 -->
+<script>
+  const data = <%- JSON.stringify(data) %>;
+  console.log("API Data:", data);
+</script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
         integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
         crossorigin="anonymous"></script>
