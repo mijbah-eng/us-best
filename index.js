@@ -4,14 +4,21 @@ const port = 3000;
 const path = require('path');
 const homePageRoute = require('./routes/home/route');
 const menuPageRoute = require('./routes/menu/route');
+const fetchMegaMenu = require('./middleware/megaMenu');
+const fetchCategoryMenu = require('./middleware/categoryMenu');
+
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
 app.use(express.static(path.join(__dirname, 'assets')));
 
-app.use('/', homePageRoute)
+// Use fetchMegaMenu BEFORE routes
+app.use(fetchMegaMenu);
+app.use(fetchCategoryMenu);
 
+app.use('/', homePageRoute)
 app.use("/menu", menuPageRoute)
+
 
 
 

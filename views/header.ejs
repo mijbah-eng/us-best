@@ -40,213 +40,36 @@
                                                         <ul class="submenu has-homemenu">
                                                             <li>
                                                                 <div class="row">
-                                                                    <div class="col-md-6 col-lg-4">
+                                                                    <% if (megaMenu && megaMenu.length > 0) { %>
+                                                                    
+                                                                        <% megaMenu.forEach(single_mega_menu => { %>
+                                                                            <div class="col-md-6 col-lg-4">
                                                                         <div class="mega-menu-box">
                                                                             <div class="mega-menu-media">
                                                                                 <div class="mega-menu-media-img">
                                                                                     <div class="mega-menu-thumbnail">
-                                                                                        <a href="/">
-                                                                                            <img src="/img/dishes/dishes1_3.png" alt="thumbnail">
+                                                                                        <a href="/menu?id=<%=single_mega_menu.categoryId %>">
+                                                                                            <img src="https://admin.foodstek.com/upload/category/<%= single_mega_menu.image %>" alt="thumbnail">
                                                                                             <span></span>
                                                                                         </a>
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="mega-menu-media-info">
                                                                                     <h4 class="mega-menu-heading">
-                                                                                        <a href="/">
-                                                                                            WINGS
+                                                                                        <a href="/menu?id=<%=single_mega_menu.categoryId %>">
+                                                                                            <%= single_mega_menu.categoryName %>
                                                                                             <span></span>
                                                                                         </a>
                                                                                     </h4>
-                                                                                    <div class="mega-menu-desc">Wings 36 Flavors</div>
+                                                                                    <div class="mega-menu-desc"><%= single_mega_menu.description %></div>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-md-6 col-lg-4">
-                                                                        <div class="mega-menu-box">
-                                                                            <div class="mega-menu-media">
-                                                                                <div class="mega-menu-media-img">
-                                                                                    <div class="mega-menu-thumbnail">
-                                                                                        <a href="/">
-                                                                                            <img src="/img/dishes/dishes1_3.png" alt="thumbnail">
-                                                                                            <span></span>
-                                                                                        </a>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div class="mega-menu-media-info">
-                                                                                    <h4 class="mega-menu-heading">
-                                                                                        <a href="/">
-                                                                                            WINGS
-                                                                                            <span></span>
-                                                                                        </a>
-                                                                                    </h4>
-                                                                                    <div class="mega-menu-desc">Wings 36 Flavors</div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-md-6 col-lg-4">
-                                                                        <div class="mega-menu-box">
-                                                                            <div class="mega-menu-media">
-                                                                                <div class="mega-menu-media-img">
-                                                                                    <div class="mega-menu-thumbnail">
-                                                                                        <a href="/">
-                                                                                            <img src="/img/dishes/dishes1_3.png" alt="thumbnail">
-                                                                                            <span></span>
-                                                                                        </a>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div class="mega-menu-media-info">
-                                                                                    <h4 class="mega-menu-heading">
-                                                                                        <a href="/">
-                                                                                            WINGS
-                                                                                            <span></span>
-                                                                                        </a>
-                                                                                    </h4>
-                                                                                    <div class="mega-menu-desc">Wings 36 Flavors</div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-md-6 col-lg-4">
-                                                                        <div class="mega-menu-box">
-                                                                            <div class="mega-menu-media">
-                                                                                <div class="mega-menu-media-img">
-                                                                                    <div class="mega-menu-thumbnail">
-                                                                                        <a href="/">
-                                                                                            <img src="/img/dishes/dishes1_3.png" alt="thumbnail">
-                                                                                            <span></span>
-                                                                                        </a>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div class="mega-menu-media-info">
-                                                                                    <h4 class="mega-menu-heading">
-                                                                                        <a href="/">
-                                                                                            WINGS
-                                                                                            <span></span>
-                                                                                        </a>
-                                                                                    </h4>
-                                                                                    <div class="mega-menu-desc">Wings 36 Flavors</div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-md-6 col-lg-4">
-                                                                        <div class="mega-menu-box">
-                                                                            <div class="mega-menu-media">
-                                                                                <div class="mega-menu-media-img">
-                                                                                    <div class="mega-menu-thumbnail">
-                                                                                        <a href="/">
-                                                                                            <img src="/img/dishes/dishes1_3.png" alt="thumbnail">
-                                                                                            <span></span>
-                                                                                        </a>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div class="mega-menu-media-info">
-                                                                                    <h4 class="mega-menu-heading">
-                                                                                        <a href="/">
-                                                                                            WINGS
-                                                                                            <span></span>
-                                                                                        </a>
-                                                                                    </h4>
-                                                                                    <div class="mega-menu-desc">Wings 36 Flavors</div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-md-6 col-lg-4">
-                                                                        <div class="mega-menu-box">
-                                                                            <div class="mega-menu-media">
-                                                                                <div class="mega-menu-media-img">
-                                                                                    <div class="mega-menu-thumbnail">
-                                                                                        <a href="/">
-                                                                                            <img src="/img/dishes/dishes1_3.png" alt="thumbnail">
-                                                                                            <span></span>
-                                                                                        </a>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div class="mega-menu-media-info">
-                                                                                    <h4 class="mega-menu-heading">
-                                                                                        <a href="/">
-                                                                                            WINGS
-                                                                                            <span></span>
-                                                                                        </a>
-                                                                                    </h4>
-                                                                                    <div class="mega-menu-desc">Wings 36 Flavors</div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-md-6 col-lg-4">
-                                                                        <div class="mega-menu-box">
-                                                                            <div class="mega-menu-media">
-                                                                                <div class="mega-menu-media-img">
-                                                                                    <div class="mega-menu-thumbnail">
-                                                                                        <a href="/">
-                                                                                            <img src="/img/dishes/dishes1_3.png" alt="thumbnail">
-                                                                                            <span></span>
-                                                                                        </a>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div class="mega-menu-media-info">
-                                                                                    <h4 class="mega-menu-heading">
-                                                                                        <a href="/">
-                                                                                            WINGS
-                                                                                            <span></span>
-                                                                                        </a>
-                                                                                    </h4>
-                                                                                    <div class="mega-menu-desc">Wings 36 Flavors</div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-md-6 col-lg-4">
-                                                                        <div class="mega-menu-box">
-                                                                            <div class="mega-menu-media">
-                                                                                <div class="mega-menu-media-img">
-                                                                                    <div class="mega-menu-thumbnail">
-                                                                                        <a href="/">
-                                                                                            <img src="/img/dishes/dishes1_3.png" alt="thumbnail">
-                                                                                            <span></span>
-                                                                                        </a>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div class="mega-menu-media-info">
-                                                                                    <h4 class="mega-menu-heading">
-                                                                                        <a href="/">
-                                                                                            WINGS
-                                                                                            <span></span>
-                                                                                        </a>
-                                                                                    </h4>
-                                                                                    <div class="mega-menu-desc">Wings 36 Flavors</div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-md-6 col-lg-4">
-                                                                        <div class="mega-menu-box">
-                                                                            <div class="mega-menu-media">
-                                                                                <div class="mega-menu-media-img">
-                                                                                    <div class="mega-menu-thumbnail">
-                                                                                        <a href="/">
-                                                                                            <img src="/img/dishes/dishes1_3.png" alt="thumbnail">
-                                                                                            <span></span>
-                                                                                        </a>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div class="mega-menu-media-info">
-                                                                                    <h4 class="mega-menu-heading">
-                                                                                        <a href="/">
-                                                                                            WINGS
-                                                                                            <span></span>
-                                                                                        </a>
-                                                                                    </h4>
-                                                                                    <div class="mega-menu-desc">Wings 36 Flavors</div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
+                                                                        <% }) %>
+
+                                                                    <% } %>
+
                                                                     <div class="col-md-12 col-lg-12" style="text-align: center;">
                                                                         <a href="/menu" class="theme-btn">
 
