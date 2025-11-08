@@ -25,78 +25,101 @@
 
 
                     <div class="food-menu-tab">
-                        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-                            <% if (categoryMenu && categoryMenu.length > 0) { %>
-                                <% categoryMenu.forEach(single_categoryMenu => { %>
+  <!-- Tabs -->
+  <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+    <% if (categoryMenu && categoryMenu.length > 0) { %>
+      <% categoryMenu.forEach((single_categoryMenu, index) => { %>
+        <li class="nav-item" role="presentation">
+          <button 
+            class="nav-link <%= index === 0 ? 'active' : '' %>" 
+            id="tab-<%= single_categoryMenu.categoryId %>" 
+            data-bs-toggle="pill"
+            data-bs-target="#tab-<%= single_categoryMenu.categoryId %>-pane" 
+            type="button" 
+            role="tab"
+            aria-controls="tab-<%= single_categoryMenu.categoryId %>-pane" 
+            aria-selected="<%= index === 0 ? 'true' : 'false' %>">
 
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="tab-<%= single_categoryMenu.categoryId%>" data-bs-toggle="pill"
-                                    data-bs-target="#tab-<%= single_categoryMenu.categoryId %>-pane" type="button" role="tab"
-                                    aria-controls="tab-<%= single_categoryMenu.categoryId %>-pane" aria-selected="true"><img width="55" height="55"
-                                        src="https://admin.foodstek.com/upload/category/<%= single_categoryMenu.icon %>" alt="icon"><%= single_categoryMenu.categoryName %></button>
-                            </li>
+            <img 
+              width="55" height="55"
+              src="https://admin.foodstek.com/upload/category/<%= single_categoryMenu.icon %>" 
+              alt="icon">
 
-                                 <% }) %>
+            <%= single_categoryMenu.categoryName %>
+          </button>
+        </li>
+      <% }) %>
+    <% } %>
+  </ul>
 
-                             <% } %>   
-                            
-                        </ul>
-                        <div class="tab-content" id="pills-tabContent">
-                            <% if (categoryMenu && categoryMenu.length > 0) { %>
-                                <% categoryMenu.forEach(single_categoryMenu => { %>
+  <!-- Tab Contents -->
+  <div class="tab-content" id="pills-tabContent">
+    <% if (categoryMenu && categoryMenu.length > 0) { %>
+      <% categoryMenu.forEach((single_categoryMenu, index) => { %>
+        <div 
+          class="tab-pane fade <%= index === 0 ? 'show active' : '' %>" 
+          id="tab-<%= single_categoryMenu.categoryId %>-pane" 
+          role="tabpanel" 
+          aria-labelledby="tab-<%= single_categoryMenu.categoryId %>">
 
-                        <div class="tab-pane fade" id="tab-<%= single_categoryMenu.categoryId %>-pane" role="tabpanel" aria-labelledby="tab-<%= single_categoryMenu.categoryId%>">
-                            <div class="food-title">
-                            <h2 class=""><%= single_categoryMenu.categoryName %></h2>
-                            </div>
-                            <div class="dishes-card-wrap style1">
-                           <% if (single_categoryMenu.menu && single_categoryMenu.menu.length > 0) { %>
-                                <% single_categoryMenu.menu.forEach(single_menu => { %>
-                                    <div class="dishes-card style1">
-                                    <div class="social-profile">
-                                        <span class="plus-btn"><a href="#"><i class="fa-regular fa-heart"></i></a></span>
-                                        <ul>
-                                        <li><a href="/cart"><i class="fa-regular fa-basket-shopping-simple"></i></a></li>
-                                        <li><a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-light fa-eye"></i></a></li>
-                                        </ul>
-                                    </div>
+          <div class="food-title">
+            <h2><%= single_categoryMenu.categoryName %></h2>
+          </div>
 
-                                    <div class="dishes-thumb">
-                                        <img src="https://admin.foodstek.com/upload/menu/<%= single_menu.image %>" alt="thumb" width="133" height="132">
-                                    </div>
+          <div class="dishes-card-wrap style1">
+            <% if (single_categoryMenu.menu && single_categoryMenu.menu.length > 0) { %>
+              <% single_categoryMenu.menu.forEach(single_menu => { %>
+                <div class="dishes-card style1">
+                  <div class="social-profile">
+                    <span class="plus-btn">
+                      <a href="#"><i class="fa-regular fa-heart"></i></a>
+                    </span>
+                    <ul>
+                      <li><a href="/cart"><i class="fa-regular fa-basket-shopping-simple"></i></a></li>
+                      <li><a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-light fa-eye"></i></a></li>
+                    </ul>
+                  </div>
 
-                                    <a href="/menu">
-                                        <h3><%= single_menu.menuName %></h3>
-                                    </a>
+                  <div class="dishes-thumb">
+                    <img 
+                      src="https://admin.foodstek.com/upload/menu/<%= single_menu.image %>" 
+                      alt="thumb" 
+                      width="133" height="132">
+                  </div>
 
-                                    <p><% 
-                                    const desc = single_menu.description || ""; 
-                                    const shortDesc = desc.length > 20 ? desc.substring(0, 20) + "..." : desc; 
-                                %>
-                                <%= shortDesc %></p>
+                  <a href="/menu">
+                    <h3><%= single_menu.menuName %></h3>
+                  </a>
 
-                                    <% 
-                                        // Here the customType is being filtered
-                                        const filtered = Array.isArray(single_menu.customeType) 
-                                        ? single_menu.customeType.filter(type => type.cprice && type.customtype)
-                                        : [];
-                                    %>
+                  <p>
+                    <% 
+                      const desc = single_menu.description || ""; 
+                      const shortDesc = desc.length > 20 ? desc.substring(0, 20) + "..." : desc; 
+                    %>
+                    <%= shortDesc %>
+                  </p>
 
-                                    <% if (filtered.length > 0) { %>
-                                        <h6>$<%= filtered[0].cprice %> - $<%= filtered[filtered.length -1].cprice %></h6>
-                                    <% } %>
-                                    </div>
-                                <% }) %>
-                                <% } %>
+                  <% 
+                    const filtered = Array.isArray(single_menu.customeType) 
+                      ? single_menu.customeType.filter(type => type.cprice && type.customtype)
+                      : [];
+                  %>
 
-                            </div>
-                        </div>
+                  <% if (filtered.length > 0) { %>
+                    <h6>$<%= filtered[0].cprice %> - $<%= filtered[filtered.length - 1].cprice %></h6>
+                  <% } %>
+                </div>
+              <% }) %>
+            <% } else { %>
+              <p>No items available in this category.</p>
+            <% } %>
+          </div>
+        </div>
+      <% }) %>
+    <% } %>
+  </div>
+</div>
 
-
-                                <% }) %>
-                             <% } %> 
-                        </div>
-                    </div>
 
                 </div>
             
@@ -699,7 +722,7 @@
     </section>
 
 
-    <script>
+    <!-- <script>
   document.addEventListener("DOMContentLoaded", function () {
     // Extract the id parameter from the URL
     const params = new URLSearchParams(window.location.search);
@@ -742,4 +765,4 @@
       });
     });
   });
-</script>
+</script> -->
