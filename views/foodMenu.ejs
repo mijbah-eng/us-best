@@ -75,7 +75,7 @@
                       <a href="#"><i class="fa-regular fa-heart"></i></a>
                     </span>
                     <ul>
-                      <li><a href="/cart"><i class="fa-regular fa-basket-shopping-simple"></i></a></li>
+                      <li><a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-regular fa-basket-shopping-simple"></i></a></li>
                       <li><a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-light fa-eye"></i></a></li>
                     </ul>
                   </div>
@@ -720,49 +720,3 @@
             </div>
         </div>
     </section>
-
-
-    <!-- <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    // Extract the id parameter from the URL
-    const params = new URLSearchParams(window.location.search);
-    const id = params.get("id"); // যেমন: pills-drinkJuice
-    
-
-    // // Remove the active class from all tab buttons and content
-    const allTabs = document.querySelectorAll(".nav-link");
-    const allPanes = document.querySelectorAll(".tab-pane");
-    allTabs.forEach(tab => tab.classList.remove("active"));
-    allPanes.forEach(pane => pane.classList.remove("show", "active"));
-
-    // If the id parameter exists and matches
-    if (id) {
-      const activeButton = document.querySelector(`[data-bs-target="#${id}"]`);
-      const activePane = document.querySelector(`#tab-${id}`);
-
-      if (activeButton && activePane) {
-        activeButton.classList.add("active");
-        activeButton.setAttribute("aria-selected", "true");
-        activePane.classList.add("show", "active");
-      }
-    } else {
-      // If the id parameter does not exist, make the default "FastFood" tab active
-      document.querySelector("#pills-FastFood-tab").classList.add("active");
-      document.querySelector("#pills-FastFood").classList.add("show", "active");
-    }
-
-    // Manual tab click handle (active toggle)
-    allTabs.forEach(btn => {
-      btn.addEventListener("click", function () {
-        allTabs.forEach(tab => tab.classList.remove("active"));
-        allPanes.forEach(pane => pane.classList.remove("show", "active"));
-
-        const targetId = btn.getAttribute("data-bs-target");
-        const targetPane = document.querySelector(targetId);
-
-        btn.classList.add("active");
-        targetPane.classList.add("show", "active");
-      });
-    });
-  });
-</script> -->

@@ -39,7 +39,7 @@
 
     <!-- Breadcumb Section   S T A R T -->
     <div class="breadcumb-section">
-        <div class="breadcumb-wrapper" style="background-image: url('https://admin.foodstek.com/upload/slider/<%= data[0].image %>');">
+        <div class="breadcumb-wrapper" style="background-image: url('https://admin.foodstek.com/upload/slider/<%= bannerData[0].image %>');">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
@@ -140,7 +140,7 @@
                       <a href="#"><i class="fa-regular fa-heart"></i></a>
                     </span>
                     <ul>
-                      <li><a href="/cart"><i class="fa-regular fa-basket-shopping-simple"></i></a></li>
+                      <li><a href="#" class="view_modal" data-menu-id="<%= single_menu.menuId %>" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-regular fa-basket-shopping-simple"></i></a></li>
                       <li><a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-light fa-eye"></i></a></li>
                     </ul>
                   </div>
@@ -221,13 +221,292 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <div class="container">
-                            <div class="row gy-5">
+                        <div class="container modal_data">
+                            <!-- row => col -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Extract the id parameter from the URL
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get("id"); // যেমন: pills-drinkJuice
+    
+
+    // // Remove the active class from all tab buttons and content
+    const allTabs = document.querySelectorAll(".nav-link");
+    const allPanes = document.querySelectorAll(".tab-pane");
+    allTabs.forEach(tab => tab.classList.remove("active"));
+    allPanes.forEach(pane => pane.classList.remove("show", "active"));
+
+    // If the id parameter exists and matches
+    if (id) {
+      const activeButton = document.querySelector(`[data-bs-target="#${id}"]`);
+      const activePane = document.querySelector(`#tab-${id}`);
+
+      if (activeButton && activePane) {
+        activeButton.classList.add("active");
+        activeButton.setAttribute("aria-selected", "true");
+        activePane.classList.add("show", "active");
+      }
+    } else {
+      // If the id parameter does not exist, make the default "FastFood" tab active
+      document.querySelector("#pills-FastFood-tab").classList.add("active");
+      document.querySelector("#pills-FastFood").classList.add("show", "active");
+    }
+
+    // Manual tab click handle (active toggle)
+    allTabs.forEach(btn => {
+      btn.addEventListener("click", function () {
+        allTabs.forEach(tab => tab.classList.remove("active"));
+        allPanes.forEach(pane => pane.classList.remove("show", "active"));
+
+        const targetId = btn.getAttribute("data-bs-target");
+        const targetPane = document.querySelector(targetId);
+
+        btn.classList.add("active");
+        targetPane.classList.add("show", "active");
+      });
+    });
+  });
+</script> -->
+
+    <!-- Cta section  S T A R T -->
+    <section class="cta-section fix">
+        <div class="cta-wrapper style1  section-padding">
+            <div class="shape1 float-bob-x d-none d-xxl-block"><img src="/img/shape/ctaShape1_1.png" alt="shape">
+            </div>
+            <div class="shape2 float-bob-y d-none d-xxl-block"><img src="/img/shape/ctaShape1_2.png" alt="shape">
+            </div>
+            <div class="shape3 float-bob-y d-none d-xxl-block"><img src="/img/shape/ctaShape1_3.png" alt="shape">
+            </div>
+            <div class="container">
+                <div class="cta-wrap style1">
+                    <div class="row">
+                        <div class="col-xl-6 order-2 order-xl-1">
+                            <div class="cta-content">
+                                <h6 class="wow fadeInUp" data-wow-delay="0.5s">WELCOME US BEST</h6>
+                                <h3 class="wow fadeInUp" data-wow-delay="0.7s">TODAY SPACIAL FOOD</h3>
+                                <p class="wow fadeInUp" data-wow-delay="0.8s">limits Time Offer</p>
+                                <a class="theme-btn wow fadeInUp" data-wow-delay="0.9s" href="/menu">ORDER NOW <i
+                                        class="fa-sharp fa-regular fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                        <div class="col-xl-6 order-1 order-xl-2">
+                            <div class="cta-thumb">
+                                <img class="img-fluid float-bob-x" src="/img/cta/ctaThumb1_1.png" alt="thumb">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial section  S T A R T -->
+    <section class="testimonial-section fix section-padding">
+        <div class="testimonial-wrapper style2">
+            <div class="container">
+
+                <div class="testimonial-wrap style2">
+                    <div class="row gx-80 gy-5">
+                        <div class="col-xl-7 order-2 order-xl-1">
+                            <div class="title-area">
+                                <div class="sub-title text-start wow fadeInUp" data-wow-delay="0.5s">
+                                    <img class="me-1" src="/img/icon/titleIcon.svg" alt="icon">TESTIMONIALS<img
+                                        class="ms-1" src="/img/icon/titleIcon.svg" alt="icon">
+                                </div>
+                                <h2 class="title  text-start wow fadeInUp" data-wow-delay="0.7s">
+                                    what have lots of happy customer feedback
+                                </h2>
+                            </div>
+
+                            <div class="slider-area">
+                                <div class="swiper testimonialSliderTwo">
+                                    <div class="swiper-wrapper">
+                                        <div class="swiper-slide">
+                                            <div class="testimonial-card style2">
+                                                <div class="quote"><img src="/img/icon/quote.svg" alt="icon">
+                                                </div>
+                                                <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It
+                                                    has roots in a piece of classical Latin literature from 45 BC,
+                                                    making it over 2000 years old. Richard McClintock !</p>
+                                                <div class="profile-box">
+                                                    <div class="one"><img
+                                                            src="/img/testimonial/testimonialProfile2_1.png"
+                                                            alt="thumb"></div>
+                                                    <div class="two"><img
+                                                            src="/img/testimonial/testimonialProfile2_2.png"
+                                                            alt="thumb"></div>
+                                                    <div class="three"><img
+                                                            src="/img/testimonial/testimonialProfile2_3.png"
+                                                            alt="thumb"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <div class="testimonial-card style2">
+                                                <div class="quote"><img src="/img/icon/quote.svg" alt="icon">
+                                                </div>
+                                                <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It
+                                                    has roots in a piece of classical Latin literature from 45 BC,
+                                                    making it over 2000 years old. Richard McClintock !</p>
+                                                <div class="profile-box">
+                                                    <div class="one"><img
+                                                            src="/img/testimonial/testimonialProfile2_1.png"
+                                                            alt="thumb"></div>
+                                                    <div class="two"><img
+                                                            src="/img/testimonial/testimonialProfile2_2.png"
+                                                            alt="thumb"></div>
+                                                    <div class="three"><img
+                                                            src="/img/testimonial/testimonialProfile2_3.png"
+                                                            alt="thumb"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="btn-wrap">
+                                        <div class="arrow-prev"><i class="fa-regular fa-arrow-left"></i></div>
+                                        <div class="arrow-next"><i class="fa-regular fa-arrow-right"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <div class="col-xl-5 order-1 order-xl-2">
+                            <div class="testimonial-thumb">
+                                <img src="/img/testimonial/testimonialThumb2_1.png" alt="thumb">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section    S T A R T -->
+    <%- include('footer'); -%>
+
+
+
+    <!--<< All JS Plugins >>-->
+    <%- include('script'); -%>
+    <script>
+        document.querySelectorAll('.view_modal').forEach(btn => {
+            btn.addEventListener("click", async function () {
+                const menuId = this.dataset.menuId;
+                
+
+
+                try {
+                  const response = await fetch('/getMenuDetails', {
+
+                        method: 'POST',
+                        headers: {
+                        'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ menuId })
+                        });
+
+                        const data = await response.json();
+
+                        if(data.success && data.menu) {
+                        const modalWapper = document.querySelector(".modal_data")
+                        const {menu, details} = data.menu
+
+                        modalWapper.innerHTML = ""
+
+        // *******
+        let sizeOptions  = "";
+        if (menu.type === "custom") {
+            sizeOptions  = menu.customeType.map((item,index) => `
+            <div>
+          <input type="radio" 
+                 class="size" 
+                 name="size" 
+                 value="${item.customtype}" 
+                 data-price="${item.cprice}" 
+                 id="size-${index}">
+          <label for="size-${index}">
+            ${item.customtype} - $${item.cprice}
+          </label>
+        </div>
+            `).join("")
+        } else {
+            sizeOptions = `
+            
+            `
+        }
+
+        let sauceOptions = "";
+        if(details.sauce.length > 0){
+            console.log(details.sauce.length);
+            sauceOptions = details.sauce.map((item, index) => `
+          <label>
+            <input type="checkbox" 
+                   class="sauce-checkbox" 
+                   name="sauce[]" 
+                   value="${item.sauceId}" 
+                   data-sauce-name="${item.sauce}" 
+                   data-price="${item?.price || 0}" 
+                   onclick="maxsaucecheck()">
+                   ${item.sauce}
+          </label><br>
+          <hr style="margin-top:0;margin-bottom:0;">
+        `).join("")
+            
+        }
+        let combo = ""
+        if(details.combotag.length > 0){
+            combo = details.combotag.map((item, index) =>  `
+
+        <label>
+          <input type="checkbox"
+            class="extracombotag-checkbox"
+            name="extracombotag[]"
+            value="${item.combotagId}" 
+            data-extracombotag-name="${item.combotagName}"
+            data-price="${item.price}">
+            ${item.combotagName}
+        </label><br>
+        <hr style="margin-top: 0px; margin-bottom: 0px;">
+            ` ).join("")
+        }
+
+        const  formHtml = `
+        <form id="addToCartForm">
+            <input type="hidden" name="menuId" value="${menu.menuId || ""}" id="menuId"> 
+            <input type="hidden" name="menuName" value="${menu.menuName || ""}" id="menuName"> 
+            <input type="hidden" name="uuid" value="${crypto.randomUUID?.() || "temp-uuid"}" id="uuid"> 
+
+            <h6><span>Select Size</span></h6>
+            ${sizeOptions}
+            <h6><span>Sauce</span></h6>
+            ${sauceOptions}
+
+            <h6><span>Combo</span></h6>
+            ${combo}
+
+            <button type="submit" class="btn btn-primary mt-3">Add to Cart</button>
+        </form>
+        `
+
+
+                        const modelData = `
+                           <div class="row gy-5">
                                 <div class="col-xxl-5 col-md-12 col-sm-12">
                                     <div class="modal-thumb">
                                         <div class="product-big-img bg-color2">
                                             <div class="dishes-thumb">
-                                                <img class="img-fluid" src="/img/dishes/dishes3_1.png"
+                                                <img class="img-fluid" src="https://admin.foodstek.com/upload/menu/${menu?.image || ''}"
                                                     alt="thumb">
                                             </div>
                                         </div>
@@ -235,12 +514,10 @@
                                     <div class="modal-details">
                                         <div class="product-about">
                                             <div class="title-wrapper">
-                                                <h2 class="product-title">Chicken Pizza</h2>
-                                                <div class="price">$69</div>
+                                                <h2 class="product-title">${menu?.menuName || ''}</h2>
+                                                <div class="price">$ ${menu?.customeType[0].cprice} - $ ${menu?.customeType[menu?.customeType.length -1].cprice}</div>
                                             </div>
-                                            <p class="text">Aliquam hendrerit a augue insuscipit. Etiam aliquam massa
-                                                quis des mauris commodo venenatis ligula commodo leez sed blandit
-                                                convallis dignissim onec vel pellentesque neque.</p>
+                                            <p class="text">${menu?.description}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -248,221 +525,12 @@
                 
                 <h2>Item Options</h2>
                 <p>Required - Choose one.</p>
+                ${formHtml}
                 <form id="addToCartForm">
-                    <input type="hidden" name="menuId" value=" 2" id="menuId"> 
-                    <input type="hidden" name="menuName" value=" Whole Wings" id="menuName"> 
-                    <input type="hidden" name="uuid" value="1d5900-00-2a-00-220030" id="uuid"> 
-                                            <h6><span>Select Size</span></h6>
-                                                    <div>
-                                <input type="radio" class="size" name="size" value="3 pcs" data-price="6.99" id="1">
-                                <label for="size-3 pcs">3 pcs - $6.99</label>
-                            </div>
-                                                    <div>
-                                <input type="radio" class="size" name="size" value="4 pcs" data-price="7.99" id="1" onchange="clearSauceSelection(); checkAlldefult(); setprice();">
-                                <label for="size-4 pcs">4 pcs - $7.99</label>
-                            </div>
-                                                    <div>
-                                <input type="radio" class="size" name="size" value="5 pcs" data-price="9.99" id="1" onchange="clearSauceSelection(); checkAlldefult(); setprice();">
-                                <label for="size-5 pcs">5 pcs - $9.99</label>
-                            </div>
-                                                    <div>
-                                <input type="radio" class="size" name="size" value="8 pcs" data-price="15.99" id="2" onchange="clearSauceSelection(); checkAlldefult(); setprice();">
-                                <label for="size-8 pcs">8 pcs - $15.99</label>
-                            </div>
-                                                    <div>
-                                <input type="radio" class="size" name="size" value="10 pcs" data-price="18.99" id="2" onchange="clearSauceSelection(); checkAlldefult(); setprice();">
-                                <label for="size-10 pcs">10 pcs - $18.99</label>
-                            </div>
-                                                    <div>
-                                <input type="radio" class="size" name="size" value="15 pcs" data-price="25.99" id="3" onchange="clearSauceSelection(); checkAlldefult(); setprice();">
-                                <label for="size-15 pcs">15 pcs - $25.99</label>
-                            </div>
-                                                    <div>
-                                <input type="radio" class="size" name="size" value="20 pcs" data-price="30.99" id="4" onchange="clearSauceSelection(); checkAlldefult(); setprice();">
-                                <label for="size-20 pcs">20 pcs - $30.99</label>
-                            </div>
-                                                    <div>
-                                <input type="radio" class="size" name="size" value="50 pcs" data-price="73.99" id="10" onchange="clearSauceSelection(); checkAlldefult(); setprice();">
-                                <label for="size-50 pcs">50 pcs - $73.99</label>
-                            </div>
-                                                                                                                                                                                                    <h6><span>Sauce</span></h6>
-                                                        <label>
-                                <input type="checkbox" class="sauce-checkbox" name="sauce[]" value="43" data-sauce-name="Honey BBQ" data-price="0" onclick="maxsaucecheck()">
-                                Honey BBQ 
-                            </label><br>
-                            <hr style="margin-top: 0px; margin-bottom: 0px;">
-                                                        <label>
-                                <input type="checkbox" class="sauce-checkbox" name="sauce[]" value="44" data-sauce-name="Kansas City BBQ" data-price="0" onclick="maxsaucecheck()">
-                                Kansas City BBQ 
-                            </label><br>
-                            <hr style="margin-top: 0px; margin-bottom: 0px;">
-                                                        <label>
-                                <input type="checkbox" class="sauce-checkbox" name="sauce[]" value="45" data-sauce-name="BBQ Hot &amp; Spicy" data-price="0" onclick="maxsaucecheck()">
-                                BBQ Hot &amp; Spicy 
-                            </label><br>
-                            <hr style="margin-top: 0px; margin-bottom: 0px;">
-                                                        <label>
-                                <input type="checkbox" class="sauce-checkbox" name="sauce[]" value="46" data-sauce-name="BBQ Mild" data-price="0" onclick="maxsaucecheck()">
-                                BBQ Mild 
-                            </label><br>
-                            <hr style="margin-top: 0px; margin-bottom: 0px;">
-                                                        <label>
-                                <input type="checkbox" class="sauce-checkbox" name="sauce[]" value="47" data-sauce-name="Plain" data-price="0" onclick="maxsaucecheck()">
-                                Plain 
-                            </label><br>
-                            <hr style="margin-top: 0px; margin-bottom: 0px;">
-                                                        <label>
-                                <input type="checkbox" class="sauce-checkbox" name="sauce[]" value="48" data-sauce-name="Buffalo Regular" data-price="0" onclick="maxsaucecheck()">
-                                Buffalo Regular 
-                            </label><br>
-                            <hr style="margin-top: 0px; margin-bottom: 0px;">
-                                                        <label>
-                                <input type="checkbox" class="sauce-checkbox" name="sauce[]" value="49" data-sauce-name="Buffalo Hot" data-price="0" onclick="maxsaucecheck()">
-                                Buffalo Hot 
-                            </label><br>
-                            <hr style="margin-top: 0px; margin-bottom: 0px;">
-                                                        <label>
-                                <input type="checkbox" class="sauce-checkbox" name="sauce[]" value="50" data-sauce-name="Buffalo Extra Hot" data-price="0" onclick="maxsaucecheck()">
-                                Buffalo Extra Hot 
-                            </label><br>
-                            <hr style="margin-top: 0px; margin-bottom: 0px;">
-                                                        <label>
-                                <input type="checkbox" class="sauce-checkbox" name="sauce[]" value="51" data-sauce-name="Nuclear" data-price="0" onclick="maxsaucecheck()">
-                                Nuclear 
-                            </label><br>
-                            <hr style="margin-top: 0px; margin-bottom: 0px;">
-                                                        <label>
-                                <input type="checkbox" class="sauce-checkbox" name="sauce[]" value="52" data-sauce-name="Cajun" data-price="0" onclick="maxsaucecheck()">
-                                Cajun 
-                            </label><br>
-                            <hr style="margin-top: 0px; margin-bottom: 0px;">
-                                                        <label>
-                                <input type="checkbox" class="sauce-checkbox" name="sauce[]" value="53" data-sauce-name="Thai Chili" data-price="0" onclick="maxsaucecheck()">
-                                Thai Chili 
-                            </label><br>
-                            <hr style="margin-top: 0px; margin-bottom: 0px;">
-                                                        <label>
-                                <input type="checkbox" class="sauce-checkbox" name="sauce[]" value="54" data-sauce-name="DC Mambo" data-price="0" onclick="maxsaucecheck()">
-                                DC Mambo 
-                            </label><br>
-                            <hr style="margin-top: 0px; margin-bottom: 0px;">
-                                                        <label>
-                                <input type="checkbox" class="sauce-checkbox" name="sauce[]" value="55" data-sauce-name="Garlic Pepper" data-price="0" onclick="maxsaucecheck()">
-                                Garlic Pepper 
-                            </label><br>
-                            <hr style="margin-top: 0px; margin-bottom: 0px;">
-                                                        <label>
-                                <input type="checkbox" class="sauce-checkbox" name="sauce[]" value="56" data-sauce-name="Honey Garlic Pepper" data-price="0" onclick="maxsaucecheck()">
-                                Honey Garlic Pepper 
-                            </label><br>
-                            <hr style="margin-top: 0px; margin-bottom: 0px;">
-                                                        <label>
-                                <input type="checkbox" class="sauce-checkbox" name="sauce[]" value="57" data-sauce-name="Garlic Parmesan" data-price="0" onclick="maxsaucecheck()">
-                                Garlic Parmesan 
-                            </label><br>
-                            <hr style="margin-top: 0px; margin-bottom: 0px;">
-                                                        <label>
-                                <input type="checkbox" class="sauce-checkbox" name="sauce[]" value="58" data-sauce-name="Mild Parmesan" data-price="0" onclick="maxsaucecheck()">
-                                Mild Parmesan 
-                            </label><br>
-                            <hr style="margin-top: 0px; margin-bottom: 0px;">
-                                                        <label>
-                                <input type="checkbox" class="sauce-checkbox" name="sauce[]" value="59" data-sauce-name="Hot Parmesan" data-price="0" onclick="maxsaucecheck()">
-                                Hot Parmesan 
-                            </label><br>
-                            <hr style="margin-top: 0px; margin-bottom: 0px;">
-                                                        <label>
-                                <input type="checkbox" class="sauce-checkbox" name="sauce[]" value="60" data-sauce-name="Honey Mustard" data-price="0" onclick="maxsaucecheck()">
-                                Honey Mustard 
-                            </label><br>
-                            <hr style="margin-top: 0px; margin-bottom: 0px;">
-                                                        <label>
-                                <input type="checkbox" class="sauce-checkbox" name="sauce[]" value="61" data-sauce-name="Moon Dust" data-price="0" onclick="maxsaucecheck()">
-                                Moon Dust 
-                            </label><br>
-                            <hr style="margin-top: 0px; margin-bottom: 0px;">
-                                                        <label>
-                                <input type="checkbox" class="sauce-checkbox" name="sauce[]" value="62" data-sauce-name="Hot Moon Dust" data-price="0" onclick="maxsaucecheck()">
-                                Hot Moon Dust 
-                            </label><br>
-                            <hr style="margin-top: 0px; margin-bottom: 0px;">
-                                                        <label>
-                                <input type="checkbox" class="sauce-checkbox" name="sauce[]" value="63" data-sauce-name="Honey Moon Dust" data-price="0" onclick="maxsaucecheck()">
-                                Honey Moon Dust 
-                            </label><br>
-                            <hr style="margin-top: 0px; margin-bottom: 0px;">
-                                                        <label>
-                                <input type="checkbox" class="sauce-checkbox" name="sauce[]" value="64" data-sauce-name="Lemon Pepper" data-price="0" onclick="maxsaucecheck()">
-                                Lemon Pepper 
-                            </label><br>
-                            <hr style="margin-top: 0px; margin-bottom: 0px;">
-                                                        <label>
-                                <input type="checkbox" class="sauce-checkbox" name="sauce[]" value="65" data-sauce-name="Honey Lemon Pepper" data-price="0" onclick="maxsaucecheck()">
-                                Honey Lemon Pepper 
-                            </label><br>
-                            <hr style="margin-top: 0px; margin-bottom: 0px;">
-                                                        <label>
-                                <input type="checkbox" class="sauce-checkbox" name="sauce[]" value="66" data-sauce-name="Hot Lemon Pepper" data-price="0" onclick="maxsaucecheck()">
-                                Hot Lemon Pepper 
-                            </label><br>
-                            <hr style="margin-top: 0px; margin-bottom: 0px;">
-                                                        <label>
-                                <input type="checkbox" class="sauce-checkbox" name="sauce[]" value="67" data-sauce-name="Old Bay" data-price="0" onclick="maxsaucecheck()">
-                                Old Bay 
-                            </label><br>
-                            <hr style="margin-top: 0px; margin-bottom: 0px;">
-                                                        <label>
-                                <input type="checkbox" class="sauce-checkbox" name="sauce[]" value="68" data-sauce-name="Honey Old Bay" data-price="0" onclick="maxsaucecheck()">
-                                Honey Old Bay 
-                            </label><br>
-                            <hr style="margin-top: 0px; margin-bottom: 0px;">
-                                                        <label>
-                                <input type="checkbox" class="sauce-checkbox" name="sauce[]" value="69" data-sauce-name="Mango Chili" data-price="0" onclick="maxsaucecheck()">
-                                Mango Chili 
-                            </label><br>
-                            <hr style="margin-top: 0px; margin-bottom: 0px;">
-                                                        <label>
-                                <input type="checkbox" class="sauce-checkbox" name="sauce[]" value="70" data-sauce-name="Jamaican Jerk" data-price="0" onclick="maxsaucecheck()">
-                                Jamaican Jerk 
-                            </label><br>
-                            <hr style="margin-top: 0px; margin-bottom: 0px;">
-                                                        <label>
-                                <input type="checkbox" class="sauce-checkbox" name="sauce[]" value="71" data-sauce-name="Hot Jamaican Jerk" data-price="0" onclick="maxsaucecheck()">
-                                Hot Jamaican Jerk 
-                            </label><br>
-                            <hr style="margin-top: 0px; margin-bottom: 0px;">
-                                                        <label>
-                                <input type="checkbox" class="sauce-checkbox" name="sauce[]" value="72" data-sauce-name="24 Karat Gold" data-price="0" onclick="maxsaucecheck()">
-                                24 Karat Gold 
-                            </label><br>
-                            <hr style="margin-top: 0px; margin-bottom: 0px;">
-                                                        <label>
-                                <input type="checkbox" class="sauce-checkbox" name="sauce[]" value="73" data-sauce-name="Power Ranch" data-price="0" onclick="maxsaucecheck()">
-                                Power Ranch 
-                            </label><br>
-                            <hr style="margin-top: 0px; margin-bottom: 0px;">
-                                                        <label>
-                                <input type="checkbox" class="sauce-checkbox" name="sauce[]" value="74" data-sauce-name="Teriyaki Glaze" data-price="0" onclick="maxsaucecheck()">
-                                Teriyaki Glaze 
-                            </label><br>
-                            <hr style="margin-top: 0px; margin-bottom: 0px;">
-                                                        <label>
-                                <input type="checkbox" class="sauce-checkbox" name="sauce[]" value="75" data-sauce-name="Hot Teriyaki Glaze" data-price="0" onclick="maxsaucecheck()">
-                                Hot Teriyaki Glaze 
-                            </label><br>
-                            <hr style="margin-top: 0px; margin-bottom: 0px;">
-                                                        <label>
-                                <input type="checkbox" class="sauce-checkbox" name="sauce[]" value="76" data-sauce-name="Caribbean Citrus" data-price="0" onclick="maxsaucecheck()">
-                                Caribbean Citrus 
-                            </label><br>
-                            <hr style="margin-top: 0px; margin-bottom: 0px;">
-                                                        <label>
-                                <input type="checkbox" class="sauce-checkbox" name="sauce[]" value="77" data-sauce-name="Hot Caribbean Citrus" data-price="0" onclick="maxsaucecheck()">
-                                Hot Caribbean Citrus 
-                            </label><br>
-                            <hr style="margin-top: 0px; margin-bottom: 0px;">
+                   
+                          
                             											
-                                                                                                                                                                                                                                                                                            <h6><span>Combo</span></h6>
+                                <h6><span>Combo</span></h6>
                                                         <label>
                                 <input type="checkbox" class="extracombotag-checkbox" name="extracombotag[]" value="1" data-extracombotag-name="With Fries &amp; 20 OZ Fountain Drinks" data-price="3.99">
                                 With Fries &amp; 20 OZ Fountain Drinks - $3.99                            </label><br>
@@ -779,182 +847,57 @@
                                             </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+                           `
 
-
-    <!-- <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    // Extract the id parameter from the URL
-    const params = new URLSearchParams(window.location.search);
-    const id = params.get("id"); // যেমন: pills-drinkJuice
-    
-
-    // // Remove the active class from all tab buttons and content
-    const allTabs = document.querySelectorAll(".nav-link");
-    const allPanes = document.querySelectorAll(".tab-pane");
-    allTabs.forEach(tab => tab.classList.remove("active"));
-    allPanes.forEach(pane => pane.classList.remove("show", "active"));
-
-    // If the id parameter exists and matches
-    if (id) {
-      const activeButton = document.querySelector(`[data-bs-target="#${id}"]`);
-      const activePane = document.querySelector(`#tab-${id}`);
-
-      if (activeButton && activePane) {
-        activeButton.classList.add("active");
-        activeButton.setAttribute("aria-selected", "true");
-        activePane.classList.add("show", "active");
-      }
-    } else {
-      // If the id parameter does not exist, make the default "FastFood" tab active
-      document.querySelector("#pills-FastFood-tab").classList.add("active");
-      document.querySelector("#pills-FastFood").classList.add("show", "active");
-    }
-
-    // Manual tab click handle (active toggle)
-    allTabs.forEach(btn => {
-      btn.addEventListener("click", function () {
-        allTabs.forEach(tab => tab.classList.remove("active"));
-        allPanes.forEach(pane => pane.classList.remove("show", "active"));
-
-        const targetId = btn.getAttribute("data-bs-target");
-        const targetPane = document.querySelector(targetId);
-
-        btn.classList.add("active");
-        targetPane.classList.add("show", "active");
-      });
-    });
-  });
-</script> -->
-
-    <!-- Cta section  S T A R T -->
-    <section class="cta-section fix">
-        <div class="cta-wrapper style1  section-padding">
-            <div class="shape1 float-bob-x d-none d-xxl-block"><img src="/img/shape/ctaShape1_1.png" alt="shape">
-            </div>
-            <div class="shape2 float-bob-y d-none d-xxl-block"><img src="/img/shape/ctaShape1_2.png" alt="shape">
-            </div>
-            <div class="shape3 float-bob-y d-none d-xxl-block"><img src="/img/shape/ctaShape1_3.png" alt="shape">
-            </div>
-            <div class="container">
-                <div class="cta-wrap style1">
-                    <div class="row">
-                        <div class="col-xl-6 order-2 order-xl-1">
-                            <div class="cta-content">
-                                <h6 class="wow fadeInUp" data-wow-delay="0.5s">WELCOME US BEST</h6>
-                                <h3 class="wow fadeInUp" data-wow-delay="0.7s">TODAY SPACIAL FOOD</h3>
-                                <p class="wow fadeInUp" data-wow-delay="0.8s">limits Time Offer</p>
-                                <a class="theme-btn wow fadeInUp" data-wow-delay="0.9s" href="/menu">ORDER NOW <i
-                                        class="fa-sharp fa-regular fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-                        <div class="col-xl-6 order-1 order-xl-2">
-                            <div class="cta-thumb">
-                                <img class="img-fluid float-bob-x" src="/img/cta/ctaThumb1_1.png" alt="thumb">
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonial section  S T A R T -->
-    <section class="testimonial-section fix section-padding">
-        <div class="testimonial-wrapper style2">
-            <div class="container">
-
-                <div class="testimonial-wrap style2">
-                    <div class="row gx-80 gy-5">
-                        <div class="col-xl-7 order-2 order-xl-1">
-                            <div class="title-area">
-                                <div class="sub-title text-start wow fadeInUp" data-wow-delay="0.5s">
-                                    <img class="me-1" src="/img/icon/titleIcon.svg" alt="icon">TESTIMONIALS<img
-                                        class="ms-1" src="/img/icon/titleIcon.svg" alt="icon">
-                                </div>
-                                <h2 class="title  text-start wow fadeInUp" data-wow-delay="0.7s">
-                                    what have lots of happy customer feedback
-                                </h2>
-                            </div>
-
-                            <div class="slider-area">
-                                <div class="swiper testimonialSliderTwo">
-                                    <div class="swiper-wrapper">
-                                        <div class="swiper-slide">
-                                            <div class="testimonial-card style2">
-                                                <div class="quote"><img src="/img/icon/quote.svg" alt="icon">
-                                                </div>
-                                                <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It
-                                                    has roots in a piece of classical Latin literature from 45 BC,
-                                                    making it over 2000 years old. Richard McClintock !</p>
-                                                <div class="profile-box">
-                                                    <div class="one"><img
-                                                            src="/img/testimonial/testimonialProfile2_1.png"
-                                                            alt="thumb"></div>
-                                                    <div class="two"><img
-                                                            src="/img/testimonial/testimonialProfile2_2.png"
-                                                            alt="thumb"></div>
-                                                    <div class="three"><img
-                                                            src="/img/testimonial/testimonialProfile2_3.png"
-                                                            alt="thumb"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <div class="testimonial-card style2">
-                                                <div class="quote"><img src="/img/icon/quote.svg" alt="icon">
-                                                </div>
-                                                <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It
-                                                    has roots in a piece of classical Latin literature from 45 BC,
-                                                    making it over 2000 years old. Richard McClintock !</p>
-                                                <div class="profile-box">
-                                                    <div class="one"><img
-                                                            src="/img/testimonial/testimonialProfile2_1.png"
-                                                            alt="thumb"></div>
-                                                    <div class="two"><img
-                                                            src="/img/testimonial/testimonialProfile2_2.png"
-                                                            alt="thumb"></div>
-                                                    <div class="three"><img
-                                                            src="/img/testimonial/testimonialProfile2_3.png"
-                                                            alt="thumb"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="btn-wrap">
-                                        <div class="arrow-prev"><i class="fa-regular fa-arrow-left"></i></div>
-                                        <div class="arrow-next"><i class="fa-regular fa-arrow-right"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                        </div>
-                        <div class="col-xl-5 order-1 order-xl-2">
-                            <div class="testimonial-thumb">
-                                <img src="/img/testimonial/testimonialThumb2_1.png" alt="thumb">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer Section    S T A R T -->
-    <%- include('footer'); -%>
+                        modalWapper.innerHTML = modelData;
+                        console.log("menu",menu);
+                        console.log("details",details);
+                         const form = document.getElementById("addToCartForm");
+                    
+                    form.addEventListener("submit", function (e) {
+                        e.preventDefault();
+                        const selectedSize = form.querySelector("input[name='size']:checked");
+                        const selectedSauces = [...form.querySelectorAll(".sauce-checkbox:checked")].map(el => ({
+                                                id: el.value,
+                                                name: el.dataset.sauceName,
+                                                price: el.dataset.price,
+                                                }));
+                        const selectedCombo = [...form.querySelectorAll(".extracombotag-checkbox:checked")].map(el => ({
+                                                id: el.value,
+                                                name: el.dataset.extracombotagName,
+                                                price: el.dataset.price,
+                                                }));
 
 
 
-    <!--<< All JS Plugins >>-->
-    <%- include('script'); -%>
+                        if (!selectedSize) {
+                        alert("Please select a size before adding to cart!");
+                        return;
+                        }
+
+                        const formData = {
+                        menuId: form.menuId.value,
+                        menuName: form.menuName.value,
+                        size: selectedSize ? selectedSize.value : null,
+                        sizePrice: selectedSize ? selectedSize.dataset.price : 0,
+                        sauces: selectedSauces,
+                        combo:selectedCombo,
+                        uuid: form.uuid.value,
+                        };
+
+                        console.log("🛒 Add to Cart:", formData);
+                        
+                    });
+
+                        }
+
+                } catch(error){
+                console.error("Error fetching menu details:", error);
+                }
+
+            })
+        })
+    </script>
 </body>
 
 </html>

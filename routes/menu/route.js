@@ -23,7 +23,7 @@ router.get('/', async(req, res) => {
 
         const bannerData = apiResponse.data?.data || apiResponse.data;
 
-        res.render('menu', { data: bannerData, categoryMenu, activeCategoryId });
+        res.render('menu', { bannerData, categoryMenu, activeCategoryId });
     } catch (error) {
         console.error("API request failed:", error.message);
         res.status(500).send("Error fetching data");

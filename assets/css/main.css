@@ -2872,6 +2872,18 @@ input[type=number] {
   -moz-appearance: textfield;
 }
 
+#addToCartForm input[type=checkbox] {
+  visibility: visible;
+  opacity: 1;
+  display: inline-block;
+  vertical-align: middle;
+  width: initial;
+  height: initial;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+}
+
 input[type=checkbox] {
   visibility: hidden;
   opacity: 0;
