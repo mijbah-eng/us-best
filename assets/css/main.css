@@ -3175,6 +3175,42 @@ input.main-search-input::placeholder {
   position: relative;
   margin-top: 20px;
 }
+.modal .modal-content .accordian {
+  background: #ddd;
+  color: #3e3e3e;
+  padding: 1rem;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  border: none;
+  outline: none;
+  border-radius: 0.2rem;
+  transition: 0.4s ease-in-out;
+  margin: 0.2rem 0;
+}
+.modal .modal-content .top-margin {
+  margin-top: 0;
+}
+.modal .modal-content .accordian:hover {
+  background: dodgerblue;
+  color: #fff;
+}
+.modal .modal-content .content {
+  padding: 0 1rem;
+  background: #ffffff;
+  display: none;
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.2s linear;
+}
+.modal .modal-content .accordian:after {
+  content: "➕";
+  font-size: 0.8rem;
+  float: right;
+}
+.modal .modal-content .active:after {
+  content: "➖";
+}
 .modal .modal-content .modal-header .btn-close {
   position: absolute;
   width: 30px;
@@ -4419,9 +4455,14 @@ Description: Fresheat food & Restaurant Html Template  <
   width: 1000px;
   padding: 30px 30px 10px 30px;
   opacity: 0;
-  left: -250px;
+  left: -548px;
   visibility: hidden;
   padding: 30px 30px 10px 30px;
+}
+@media (max-width: 1280px) {
+  .header-main .main-menu ul li .has-homemenu {
+    left: -250px;
+  }
 }
 .header-main .main-menu ul li .has-homemenu .theme-btn {
   width: 230px;
@@ -8704,6 +8745,9 @@ Description: Fresheat food & Restaurant Html Template  <
   }
 }
 .food-menu-tab .nav-pills .nav-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin: 10px 0;
   color: var(--title);
   font-family: var(--title-font);
@@ -8721,6 +8765,7 @@ Description: Fresheat food & Restaurant Html Template  <
 }
 .food-menu-tab .nav-pills .nav-link img {
   margin-right: 10px;
+  margin-bottom: 20px;
 }
 .food-menu-tab .nav-pills .nav-link.active {
   color: var(--theme);
@@ -9549,6 +9594,8 @@ Description: Fresheat food & Restaurant Html Template  <
 .dishes-card.style1 {
   position: relative;
   padding: 25px;
+  padding-top: 0;
+  overflow: hidden;
   border-radius: 16px;
   margin-top: 30px;
   background: var(--white);
@@ -9560,7 +9607,7 @@ Description: Fresheat food & Restaurant Html Template  <
   -o-transition: all 0.4s;
 }
 .dishes-card.style1 .dishes-thumb {
-  margin-bottom: 30px;
+  margin-bottom: 60px;
   margin-top: 20px;
 }
 .dishes-card.style1 h3 {
@@ -10135,6 +10182,13 @@ Description: Fresheat food & Restaurant Html Template  <
 .dishes-thumb img {
   position: relative;
   z-index: 2;
+  width: 100%;
+  height: 100%;
+  transition: all 0.3s;
+}
+.dishes-thumb img:hover {
+  scale: 1.2;
+  transition: all 0.3s;
 }
 @media (max-width: 500px) {
   .dishes-thumb img {
@@ -13627,7 +13681,7 @@ Description: Fresheat food & Restaurant Html Template  <
 }
 
 .product-big-img {
-  padding: 75px 125px;
+  padding: 40px 40px;
   border-radius: 10px;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
@@ -13671,15 +13725,19 @@ Description: Fresheat food & Restaurant Html Template  <
   }
 }
 
+.product-about {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
 .product-about .title-wrapper {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  flex-direction: column;
 }
 .product-about .product-title {
   color: var(--title);
   font-family: var(--title-font);
-  font-size: 24px;
+  font-size: 30px;
   font-style: normal;
   font-weight: 700;
   line-height: 50px;
@@ -13688,7 +13746,7 @@ Description: Fresheat food & Restaurant Html Template  <
 .product-about .price {
   color: var(--title);
   font-family: var(--title-font);
-  font-size: 36px;
+  font-size: 30px;
   font-style: normal;
   font-weight: 700;
   line-height: 30px;

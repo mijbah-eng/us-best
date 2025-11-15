@@ -6,7 +6,7 @@
 }
 
 .product-big-img {
-    padding: 75px 125px;
+    padding: 40px 40px;
     border-radius: 10px;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
@@ -59,16 +59,18 @@
 }
 
 .product-about {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
     .title-wrapper {
         display: flex;
-        align-items: center;
-        justify-content: space-between;
+        flex-direction: column;
     }
 
     .product-title {
         color: variables.$title-color;
         font-family: variables.$title-font;
-        font-size: 24px;
+        font-size: 30px;
         font-style: normal;
         font-weight: 700;
         line-height: 50px;
@@ -78,7 +80,7 @@
     .price {
         color: variables.$title-color;
         font-family: variables.$title-font;
-        font-size: 36px;
+        font-size: 30px;
         font-style: normal;
         font-weight: 700;
         line-height: 30px;

@@ -1043,6 +1043,51 @@ input.main-search-input::placeholder {
 		position: relative;
 		margin-top: 20px;
 
+		// accordian start
+.accordian {
+  background: #ddd;
+  color: #3e3e3e;
+  padding: 1rem;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  border: none;
+  outline: none;
+  border-radius: 0.2rem;
+  transition: 0.4s ease-in-out;
+  margin: 0.2rem 0;
+}
+
+.top-margin {
+  margin-top: 0;
+}
+
+
+.accordian:hover {
+  background: dodgerblue;
+  color: #fff;
+}
+
+.content {
+  padding: 0 1rem;
+  background: #ffffff;
+  display: none;
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.2s linear;
+}
+
+.accordian:after {
+  content: '\02795';
+  font-size: 0.8rem;
+  float: right;
+}
+
+.active:after {
+  content: '\2796';
+}
+// end
+
 		.modal-header {
 
 			.btn-close {

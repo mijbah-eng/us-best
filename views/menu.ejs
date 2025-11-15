@@ -136,12 +136,10 @@
               <% single_categoryMenu.menu.forEach(single_menu => { %>
                 <div class="dishes-card style1">
                   <div class="social-profile">
-                    <span class="plus-btn">
-                      <a href="#"><i class="fa-regular fa-heart"></i></a>
-                    </span>
+                    
                     <ul>
                       <li><a href="#" class="view_modal" data-menu-id="<%= single_menu.menuId %>" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-regular fa-basket-shopping-simple"></i></a></li>
-                      <li><a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-light fa-eye"></i></a></li>
+                      <li><a href="#" class="view_modal" data-menu-id="<%= single_menu.menuId %>" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-light fa-eye"></i></a></li>
                     </ul>
                   </div>
 
@@ -424,6 +422,38 @@
 
                         modalWapper.innerHTML = ""
 
+
+
+                         // ✅ Extra Sauce Section
+                                let extraSauce = "";
+                                if (details.sauce && details.sauce.length > 0) {
+                                    const sauceItems = details.sauce
+                                    .map(
+                                        (item, index) => `
+                                        <label  class="fs-5">
+                                            <input type="checkbox"
+                                            class="extrasauce-checkbox"
+                                            style="margin-right:10px"
+                                            name="extrasauce[]"
+                                            value="${item.sauce}"
+                                            data-extrasauce-name="${item.sauce}"
+                                            data-price="${item.price}">
+                                            ${item.sauce} - $${item.price}
+                                        </label><br>
+
+                                        `
+                                    )
+                                    .join("");
+
+                                    extraSauce = `
+                                    <button type="button" class="accordian top-margin">Extra Options</button>
+                                    <section class="content" style="max-height: 100vh; overflow: scroll; overflow-x:hidden">
+                                        <h6><span>Extra Sauce</span></h6>
+                                        ${sauceItems}
+                                    </section>
+                                    `;
+                                }
+
         // *******
         let sizeOptions  = "";
         if (menu.type === "custom") {
@@ -450,9 +480,10 @@
         if(details.sauce.length > 0){
             console.log(details.sauce.length);
             sauceOptions = details.sauce.map((item, index) => `
-          <label>
+          <label  class="fs-5">
             <input type="checkbox" 
                    class="sauce-checkbox" 
+                   style="margin-right:10px"
                    name="sauce[]" 
                    value="${item.sauceId}" 
                    data-sauce-name="${item.sauce}" 
@@ -460,7 +491,7 @@
                    onclick="maxsaucecheck()">
                    ${item.sauce}
           </label><br>
-          <hr style="margin-top:0;margin-bottom:0;">
+          
         `).join("")
             
         }
@@ -477,427 +508,134 @@
             data-price="${item.price}">
             ${item.combotagName}
         </label><br>
-        <hr style="margin-top: 0px; margin-bottom: 0px;">
+        
             ` ).join("")
         }
 
-        const  formHtml = `
-        <form id="addToCartForm">
-            <input type="hidden" name="menuId" value="${menu.menuId || ""}" id="menuId"> 
-            <input type="hidden" name="menuName" value="${menu.menuName || ""}" id="menuName"> 
-            <input type="hidden" name="uuid" value="${crypto.randomUUID?.() || "temp-uuid"}" id="uuid"> 
+                            const formHtml = `
+                        <form id="addToCartForm">
+                            <input type="hidden" name="menuId" value="${menu.menuId || ""}" id="menuId"> 
+                            <input type="hidden" name="menuName" value="${menu.menuName || ""}" id="menuName"> 
+                            <input type="hidden" name="uuid" value="${crypto.randomUUID?.() || "temp-uuid"}" id="uuid"> 
 
-            <h6><span>Select Size</span></h6>
-            ${sizeOptions}
-            <h6><span>Sauce</span></h6>
-            ${sauceOptions}
-
-            <h6><span>Combo</span></h6>
-            ${combo}
-
-            <button type="submit" class="btn btn-primary mt-3">Add to Cart</button>
-        </form>
-        `
+                            ${menu.customeType.length > 0 ? "<h6><span>Select Size</span></h6>" : "" }
+                            ${sizeOptions}
+                            ${details.sauce.length > 0 ? "<h6><span>Sauce</span></h6>" : "" }
+                            ${sauceOptions}
+                            ${details.combotag.length > 0 ? "<h6><span>Combo</span></h6>" : "" }
+                            ${combo}
+                            ${extraSauce || ""}
+                        </form>
+                        `;
 
 
-                        const modelData = `
-                           <div class="row gy-5">
-                                <div class="col-xxl-5 col-md-12 col-sm-12">
-                                    <div class="modal-thumb">
-                                        <div class="product-big-img bg-color2">
-                                            <div class="dishes-thumb">
-                                                <img class="img-fluid" src="https://admin.foodstek.com/upload/menu/${menu?.image || ''}"
-                                                    alt="thumb">
+                     const modelData = `
+                                <div class="row gy-5">
+                                    <div class="col-xxl-5 col-md-12 col-sm-12">
+                                        <div class="modal-thumb">
+                                            <div class="product-big-img bg-color2">
+                                                <div class="dishes-thumb">
+                                                    <img class="img-fluid" src="https://admin.foodstek.com/upload/menu/${menu?.image || ''}" alt="thumb">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-details">
+                                            <div class="product-about">
+                                                <div class="title-wrapper">
+                                                    <h2 class="product-title">${menu?.menuName || ''}</h2>
+                                                    <div class="price">$ ${menu?.customeType[0].cprice} - $ ${menu?.customeType[menu?.customeType.length -1].cprice}</div>
+                                                </div>
+                                                <p class="text">${menu?.description}</p>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="modal-details">
-                                        <div class="product-about">
-                                            <div class="title-wrapper">
-                                                <h2 class="product-title">${menu?.menuName || ''}</h2>
-                                                <div class="price">$ ${menu?.customeType[0].cprice} - $ ${menu?.customeType[menu?.customeType.length -1].cprice}</div>
-                                            </div>
-                                            <p class="text">${menu?.description}</p>
-                                        </div>
+
+                                    <div class="col-xxl-7 col-md-12 col-sm-12" style="height: 500px; overflow-y: auto; padding-right: 10px;">
+                                        <h2>Item Options</h2>
+                                        <p>Required - Choose one.</p>
+                                        ${formHtml}
                                     </div>
                                 </div>
-                                <div class="col-xxl-7 col-md-12 col-sm-12" style="height: 500px; overflow-y: auto; padding-right: 10px;">
-                
-                <h2>Item Options</h2>
-                <p>Required - Choose one.</p>
-                ${formHtml}
-                <form id="addToCartForm">
-                   
-                          
-                            											
-                                <h6><span>Combo</span></h6>
-                                                        <label>
-                                <input type="checkbox" class="extracombotag-checkbox" name="extracombotag[]" value="1" data-extracombotag-name="With Fries &amp; 20 OZ Fountain Drinks" data-price="3.99">
-                                With Fries &amp; 20 OZ Fountain Drinks - $3.99                            </label><br>
-                            <hr style="margin-top: 0px; margin-bottom: 0px;">
-                            													
-                                                                                 <button type="button" class="accordian top-margin active">Extra Options</button>
-                                        <section class="content" style="max-height: 100vh; overflow: scroll; display: block;">
-                                                                                                                            <h6><span>Extra Sauce</span></h6>
-                                                                <label>
-                                    <input type="checkbox" class="extrasauce-checkbox" name="extrasauce[]" value="43" data-extrasauce-name="Honey BBQ" data-price="0">
-                                    Honey BBQ - $0                                </label><br>
-                                <hr style="margin-top: 0px; margin-bottom: 0px;">
-                                                                <label>
-                                    <input type="checkbox" class="extrasauce-checkbox" name="extrasauce[]" value="44" data-extrasauce-name="Kansas City BBQ" data-price="0">
-                                    Kansas City BBQ - $0                                </label><br>
-                                <hr style="margin-top: 0px; margin-bottom: 0px;">
-                                                                <label>
-                                    <input type="checkbox" class="extrasauce-checkbox" name="extrasauce[]" value="45" data-extrasauce-name="BBQ Hot &amp; Spicy" data-price="0">
-                                    BBQ Hot &amp; Spicy - $0                                </label><br>
-                                <hr style="margin-top: 0px; margin-bottom: 0px;">
-                                                                <label>
-                                    <input type="checkbox" class="extrasauce-checkbox" name="extrasauce[]" value="46" data-extrasauce-name="BBQ Mild" data-price="0">
-                                    BBQ Mild - $0                                </label><br>
-                                <hr style="margin-top: 0px; margin-bottom: 0px;">
-                                                                <label>
-                                    <input type="checkbox" class="extrasauce-checkbox" name="extrasauce[]" value="47" data-extrasauce-name="Plain" data-price="0">
-                                    Plain - $0                                </label><br>
-                                <hr style="margin-top: 0px; margin-bottom: 0px;">
-                                                                <label>
-                                    <input type="checkbox" class="extrasauce-checkbox" name="extrasauce[]" value="48" data-extrasauce-name="Buffalo Regular" data-price="0">
-                                    Buffalo Regular - $0                                </label><br>
-                                <hr style="margin-top: 0px; margin-bottom: 0px;">
-                                                                <label>
-                                    <input type="checkbox" class="extrasauce-checkbox" name="extrasauce[]" value="49" data-extrasauce-name="Buffalo Hot" data-price="0">
-                                    Buffalo Hot - $0                                </label><br>
-                                <hr style="margin-top: 0px; margin-bottom: 0px;">
-                                                                <label>
-                                    <input type="checkbox" class="extrasauce-checkbox" name="extrasauce[]" value="50" data-extrasauce-name="Buffalo Extra Hot" data-price="0">
-                                    Buffalo Extra Hot - $0                                </label><br>
-                                <hr style="margin-top: 0px; margin-bottom: 0px;">
-                                                                <label>
-                                    <input type="checkbox" class="extrasauce-checkbox" name="extrasauce[]" value="51" data-extrasauce-name="Nuclear" data-price="0">
-                                    Nuclear - $0                                </label><br>
-                                <hr style="margin-top: 0px; margin-bottom: 0px;">
-                                                                <label>
-                                    <input type="checkbox" class="extrasauce-checkbox" name="extrasauce[]" value="52" data-extrasauce-name="Cajun" data-price="0">
-                                    Cajun - $0                                </label><br>
-                                <hr style="margin-top: 0px; margin-bottom: 0px;">
-                                                                <label>
-                                    <input type="checkbox" class="extrasauce-checkbox" name="extrasauce[]" value="53" data-extrasauce-name="Thai Chili" data-price="0">
-                                    Thai Chili - $0                                </label><br>
-                                <hr style="margin-top: 0px; margin-bottom: 0px;">
-                                                                <label>
-                                    <input type="checkbox" class="extrasauce-checkbox" name="extrasauce[]" value="54" data-extrasauce-name="DC Mambo" data-price="0">
-                                    DC Mambo - $0                                </label><br>
-                                <hr style="margin-top: 0px; margin-bottom: 0px;">
-                                                                <label>
-                                    <input type="checkbox" class="extrasauce-checkbox" name="extrasauce[]" value="55" data-extrasauce-name="Garlic Pepper" data-price="0">
-                                    Garlic Pepper - $0                                </label><br>
-                                <hr style="margin-top: 0px; margin-bottom: 0px;">
-                                                                <label>
-                                    <input type="checkbox" class="extrasauce-checkbox" name="extrasauce[]" value="56" data-extrasauce-name="Honey Garlic Pepper" data-price="0">
-                                    Honey Garlic Pepper - $0                                </label><br>
-                                <hr style="margin-top: 0px; margin-bottom: 0px;">
-                                                                <label>
-                                    <input type="checkbox" class="extrasauce-checkbox" name="extrasauce[]" value="57" data-extrasauce-name="Garlic Parmesan" data-price="0">
-                                    Garlic Parmesan - $0                                </label><br>
-                                <hr style="margin-top: 0px; margin-bottom: 0px;">
-                                                                <label>
-                                    <input type="checkbox" class="extrasauce-checkbox" name="extrasauce[]" value="58" data-extrasauce-name="Mild Parmesan" data-price="0">
-                                    Mild Parmesan - $0                                </label><br>
-                                <hr style="margin-top: 0px; margin-bottom: 0px;">
-                                                                <label>
-                                    <input type="checkbox" class="extrasauce-checkbox" name="extrasauce[]" value="59" data-extrasauce-name="Hot Parmesan" data-price="0">
-                                    Hot Parmesan - $0                                </label><br>
-                                <hr style="margin-top: 0px; margin-bottom: 0px;">
-                                                                <label>
-                                    <input type="checkbox" class="extrasauce-checkbox" name="extrasauce[]" value="60" data-extrasauce-name="Honey Mustard" data-price="0">
-                                    Honey Mustard - $0                                </label><br>
-                                <hr style="margin-top: 0px; margin-bottom: 0px;">
-                                                                <label>
-                                    <input type="checkbox" class="extrasauce-checkbox" name="extrasauce[]" value="61" data-extrasauce-name="Moon Dust" data-price="0">
-                                    Moon Dust - $0                                </label><br>
-                                <hr style="margin-top: 0px; margin-bottom: 0px;">
-                                                                <label>
-                                    <input type="checkbox" class="extrasauce-checkbox" name="extrasauce[]" value="62" data-extrasauce-name="Hot Moon Dust" data-price="0">
-                                    Hot Moon Dust - $0                                </label><br>
-                                <hr style="margin-top: 0px; margin-bottom: 0px;">
-                                                                <label>
-                                    <input type="checkbox" class="extrasauce-checkbox" name="extrasauce[]" value="63" data-extrasauce-name="Honey Moon Dust" data-price="0">
-                                    Honey Moon Dust - $0                                </label><br>
-                                <hr style="margin-top: 0px; margin-bottom: 0px;">
-                                                                <label>
-                                    <input type="checkbox" class="extrasauce-checkbox" name="extrasauce[]" value="64" data-extrasauce-name="Lemon Pepper" data-price="0">
-                                    Lemon Pepper - $0                                </label><br>
-                                <hr style="margin-top: 0px; margin-bottom: 0px;">
-                                                                <label>
-                                    <input type="checkbox" class="extrasauce-checkbox" name="extrasauce[]" value="65" data-extrasauce-name="Honey Lemon Pepper" data-price="0">
-                                    Honey Lemon Pepper - $0                                </label><br>
-                                <hr style="margin-top: 0px; margin-bottom: 0px;">
-                                                                <label>
-                                    <input type="checkbox" class="extrasauce-checkbox" name="extrasauce[]" value="66" data-extrasauce-name="Hot Lemon Pepper" data-price="0">
-                                    Hot Lemon Pepper - $0                                </label><br>
-                                <hr style="margin-top: 0px; margin-bottom: 0px;">
-                                                                <label>
-                                    <input type="checkbox" class="extrasauce-checkbox" name="extrasauce[]" value="67" data-extrasauce-name="Old Bay" data-price="0">
-                                    Old Bay - $0                                </label><br>
-                                <hr style="margin-top: 0px; margin-bottom: 0px;">
-                                                                <label>
-                                    <input type="checkbox" class="extrasauce-checkbox" name="extrasauce[]" value="68" data-extrasauce-name="Honey Old Bay" data-price="0">
-                                    Honey Old Bay - $0                                </label><br>
-                                <hr style="margin-top: 0px; margin-bottom: 0px;">
-                                                                <label>
-                                    <input type="checkbox" class="extrasauce-checkbox" name="extrasauce[]" value="69" data-extrasauce-name="Mango Chili" data-price="0">
-                                    Mango Chili - $0                                </label><br>
-                                <hr style="margin-top: 0px; margin-bottom: 0px;">
-                                                                <label>
-                                    <input type="checkbox" class="extrasauce-checkbox" name="extrasauce[]" value="70" data-extrasauce-name="Jamaican Jerk" data-price="0">
-                                    Jamaican Jerk - $0                                </label><br>
-                                <hr style="margin-top: 0px; margin-bottom: 0px;">
-                                                                <label>
-                                    <input type="checkbox" class="extrasauce-checkbox" name="extrasauce[]" value="71" data-extrasauce-name="Hot Jamaican Jerk" data-price="0">
-                                    Hot Jamaican Jerk - $0                                </label><br>
-                                <hr style="margin-top: 0px; margin-bottom: 0px;">
-                                                                <label>
-                                    <input type="checkbox" class="extrasauce-checkbox" name="extrasauce[]" value="72" data-extrasauce-name="24 Karat Gold" data-price="0">
-                                    24 Karat Gold - $0                                </label><br>
-                                <hr style="margin-top: 0px; margin-bottom: 0px;">
-                                                                <label>
-                                    <input type="checkbox" class="extrasauce-checkbox" name="extrasauce[]" value="73" data-extrasauce-name="Power Ranch" data-price="0">
-                                    Power Ranch - $0                                </label><br>
-                                <hr style="margin-top: 0px; margin-bottom: 0px;">
-                                                                <label>
-                                    <input type="checkbox" class="extrasauce-checkbox" name="extrasauce[]" value="74" data-extrasauce-name="Teriyaki Glaze" data-price="0">
-                                    Teriyaki Glaze - $0                                </label><br>
-                                <hr style="margin-top: 0px; margin-bottom: 0px;">
-                                                                <label>
-                                    <input type="checkbox" class="extrasauce-checkbox" name="extrasauce[]" value="75" data-extrasauce-name="Hot Teriyaki Glaze" data-price="0">
-                                    Hot Teriyaki Glaze - $0                                </label><br>
-                                <hr style="margin-top: 0px; margin-bottom: 0px;">
-                                                                <label>
-                                    <input type="checkbox" class="extrasauce-checkbox" name="extrasauce[]" value="76" data-extrasauce-name="Caribbean Citrus" data-price="0">
-                                    Caribbean Citrus - $0                                </label><br>
-                                <hr style="margin-top: 0px; margin-bottom: 0px;">
-                                                                <label>
-                                    <input type="checkbox" class="extrasauce-checkbox" name="extrasauce[]" value="77" data-extrasauce-name="Hot Caribbean Citrus" data-price="0">
-                                    Hot Caribbean Citrus - $0                                </label><br>
-                                <hr style="margin-top: 0px; margin-bottom: 0px;">
-                                                                <label>
-                                    <input type="checkbox" class="extrasauce-checkbox" name="extrasauce[]" value="80" data-extrasauce-name="Honey BBQ" data-price="1.49">
-                                    Honey BBQ - $1.49                                </label><br>
-                                <hr style="margin-top: 0px; margin-bottom: 0px;">
-                                                                <label>
-                                    <input type="checkbox" class="extrasauce-checkbox" name="extrasauce[]" value="81" data-extrasauce-name="Kansas City BBQ" data-price="1.49">
-                                    Kansas City BBQ - $1.49                                </label><br>
-                                <hr style="margin-top: 0px; margin-bottom: 0px;">
-                                                                <label>
-                                    <input type="checkbox" class="extrasauce-checkbox" name="extrasauce[]" value="82" data-extrasauce-name="BBQ Hot &amp; Spicy" data-price="1.49">
-                                    BBQ Hot &amp; Spicy - $1.49                                </label><br>
-                                <hr style="margin-top: 0px; margin-bottom: 0px;">
-                                                                <label>
-                                    <input type="checkbox" class="extrasauce-checkbox" name="extrasauce[]" value="83" data-extrasauce-name="BBQ Mild" data-price="1.49">
-                                    BBQ Mild - $1.49                                </label><br>
-                                <hr style="margin-top: 0px; margin-bottom: 0px;">
-                                                                <label>
-                                    <input type="checkbox" class="extrasauce-checkbox" name="extrasauce[]" value="84" data-extrasauce-name="Plain" data-price="1.49">
-                                    Plain - $1.49                                </label><br>
-                                <hr style="margin-top: 0px; margin-bottom: 0px;">
-                                                                <label>
-                                    <input type="checkbox" class="extrasauce-checkbox" name="extrasauce[]" value="85" data-extrasauce-name="Buffalo Regular" data-price="1.49">
-                                    Buffalo Regular - $1.49                                </label><br>
-                                <hr style="margin-top: 0px; margin-bottom: 0px;">
-                                                                <label>
-                                    <input type="checkbox" class="extrasauce-checkbox" name="extrasauce[]" value="86" data-extrasauce-name="Buffalo Hot" data-price="1.49">
-                                    Buffalo Hot - $1.49                                </label><br>
-                                <hr style="margin-top: 0px; margin-bottom: 0px;">
-                                                                <label>
-                                    <input type="checkbox" class="extrasauce-checkbox" name="extrasauce[]" value="87" data-extrasauce-name="Buffalo Extra Hot" data-price="1.49">
-                                    Buffalo Extra Hot - $1.49                                </label><br>
-                                <hr style="margin-top: 0px; margin-bottom: 0px;">
-                                                                <label>
-                                    <input type="checkbox" class="extrasauce-checkbox" name="extrasauce[]" value="88" data-extrasauce-name="Nuclear" data-price="1.49">
-                                    Nuclear - $1.49                                </label><br>
-                                <hr style="margin-top: 0px; margin-bottom: 0px;">
-                                                                <label>
-                                    <input type="checkbox" class="extrasauce-checkbox" name="extrasauce[]" value="89" data-extrasauce-name="Cajun" data-price="1.49">
-                                    Cajun - $1.49                                </label><br>
-                                <hr style="margin-top: 0px; margin-bottom: 0px;">
-                                                                <label>
-                                    <input type="checkbox" class="extrasauce-checkbox" name="extrasauce[]" value="90" data-extrasauce-name="Thai Chili" data-price="1.49">
-                                    Thai Chili - $1.49                                </label><br>
-                                <hr style="margin-top: 0px; margin-bottom: 0px;">
-                                                                <label>
-                                    <input type="checkbox" class="extrasauce-checkbox" name="extrasauce[]" value="91" data-extrasauce-name="DC Mambo" data-price="1.49">
-                                    DC Mambo - $1.49                                </label><br>
-                                <hr style="margin-top: 0px; margin-bottom: 0px;">
-                                                                <label>
-                                    <input type="checkbox" class="extrasauce-checkbox" name="extrasauce[]" value="92" data-extrasauce-name="Garlic Pepper" data-price="1.49">
-                                    Garlic Pepper - $1.49                                </label><br>
-                                <hr style="margin-top: 0px; margin-bottom: 0px;">
-                                                                <label>
-                                    <input type="checkbox" class="extrasauce-checkbox" name="extrasauce[]" value="93" data-extrasauce-name="Honey Garlic Pepper" data-price="1.49">
-                                    Honey Garlic Pepper - $1.49                                </label><br>
-                                <hr style="margin-top: 0px; margin-bottom: 0px;">
-                                                                <label>
-                                    <input type="checkbox" class="extrasauce-checkbox" name="extrasauce[]" value="94" data-extrasauce-name="Mild Parmesan" data-price="1.49">
-                                    Mild Parmesan - $1.49                                </label><br>
-                                <hr style="margin-top: 0px; margin-bottom: 0px;">
-                                                                <label>
-                                    <input type="checkbox" class="extrasauce-checkbox" name="extrasauce[]" value="95" data-extrasauce-name="Hot Parmesan" data-price="1.49">
-                                    Hot Parmesan - $1.49                                </label><br>
-                                <hr style="margin-top: 0px; margin-bottom: 0px;">
-                                                                <label>
-                                    <input type="checkbox" class="extrasauce-checkbox" name="extrasauce[]" value="97" data-extrasauce-name="Honey Mustard" data-price="1.49">
-                                    Honey Mustard - $1.49                                </label><br>
-                                <hr style="margin-top: 0px; margin-bottom: 0px;">
-                                                                <label>
-                                    <input type="checkbox" class="extrasauce-checkbox" name="extrasauce[]" value="98" data-extrasauce-name="Moon Dust" data-price="1.49">
-                                    Moon Dust - $1.49                                </label><br>
-                                <hr style="margin-top: 0px; margin-bottom: 0px;">
-                                                                <label>
-                                    <input type="checkbox" class="extrasauce-checkbox" name="extrasauce[]" value="99" data-extrasauce-name="Hot Moon Dust" data-price="1.49">
-                                    Hot Moon Dust - $1.49                                </label><br>
-                                <hr style="margin-top: 0px; margin-bottom: 0px;">
-                                                                <label>
-                                    <input type="checkbox" class="extrasauce-checkbox" name="extrasauce[]" value="100" data-extrasauce-name="Honey Moon Dust" data-price="1.49">
-                                    Honey Moon Dust - $1.49                                </label><br>
-                                <hr style="margin-top: 0px; margin-bottom: 0px;">
-                                                                <label>
-                                    <input type="checkbox" class="extrasauce-checkbox" name="extrasauce[]" value="101" data-extrasauce-name="Lemon Pepper" data-price="1.49">
-                                    Lemon Pepper - $1.49                                </label><br>
-                                <hr style="margin-top: 0px; margin-bottom: 0px;">
-                                                                <label>
-                                    <input type="checkbox" class="extrasauce-checkbox" name="extrasauce[]" value="102" data-extrasauce-name="Honey Lemon Pepper" data-price="1.49">
-                                    Honey Lemon Pepper - $1.49                                </label><br>
-                                <hr style="margin-top: 0px; margin-bottom: 0px;">
-                                                                <label>
-                                    <input type="checkbox" class="extrasauce-checkbox" name="extrasauce[]" value="103" data-extrasauce-name="Hot Lemon Pepper" data-price="1.49">
-                                    Hot Lemon Pepper - $1.49                                </label><br>
-                                <hr style="margin-top: 0px; margin-bottom: 0px;">
-                                                                <label>
-                                    <input type="checkbox" class="extrasauce-checkbox" name="extrasauce[]" value="104" data-extrasauce-name="Old Bay" data-price="1.49">
-                                    Old Bay - $1.49                                </label><br>
-                                <hr style="margin-top: 0px; margin-bottom: 0px;">
-                                                                <label>
-                                    <input type="checkbox" class="extrasauce-checkbox" name="extrasauce[]" value="105" data-extrasauce-name="Honey Old Bay" data-price="1.49">
-                                    Honey Old Bay - $1.49                                </label><br>
-                                <hr style="margin-top: 0px; margin-bottom: 0px;">
-                                                                <label>
-                                    <input type="checkbox" class="extrasauce-checkbox" name="extrasauce[]" value="106" data-extrasauce-name="Hot Old Bay" data-price="1.49">
-                                    Hot Old Bay - $1.49                                </label><br>
-                                <hr style="margin-top: 0px; margin-bottom: 0px;">
-                                                                <label>
-                                    <input type="checkbox" class="extrasauce-checkbox" name="extrasauce[]" value="107" data-extrasauce-name="Mango Chili" data-price="1.49">
-                                    Mango Chili - $1.49                                </label><br>
-                                <hr style="margin-top: 0px; margin-bottom: 0px;">
-                                                                <label>
-                                    <input type="checkbox" class="extrasauce-checkbox" name="extrasauce[]" value="108" data-extrasauce-name="Jamaican Jerk" data-price="1.49">
-                                    Jamaican Jerk - $1.49                                </label><br>
-                                <hr style="margin-top: 0px; margin-bottom: 0px;">
-                                                                <label>
-                                    <input type="checkbox" class="extrasauce-checkbox" name="extrasauce[]" value="109" data-extrasauce-name="Hot Jamaican Jerk" data-price="1.49">
-                                    Hot Jamaican Jerk - $1.49                                </label><br>
-                                <hr style="margin-top: 0px; margin-bottom: 0px;">
-                                                                <label>
-                                    <input type="checkbox" class="extrasauce-checkbox" name="extrasauce[]" value="110" data-extrasauce-name="24 Karat Gold" data-price="1.49">
-                                    24 Karat Gold - $1.49                                </label><br>
-                                <hr style="margin-top: 0px; margin-bottom: 0px;">
-                                                                <label>
-                                    <input type="checkbox" class="extrasauce-checkbox" name="extrasauce[]" value="111" data-extrasauce-name="Power Ranch" data-price="1.49">
-                                    Power Ranch - $1.49                                </label><br>
-                                <hr style="margin-top: 0px; margin-bottom: 0px;">
-                                                                <label>
-                                    <input type="checkbox" class="extrasauce-checkbox" name="extrasauce[]" value="112" data-extrasauce-name="Teriyaki Glaze" data-price="1.49">
-                                    Teriyaki Glaze - $1.49                                </label><br>
-                                <hr style="margin-top: 0px; margin-bottom: 0px;">
-                                                                <label>
-                                    <input type="checkbox" class="extrasauce-checkbox" name="extrasauce[]" value="113" data-extrasauce-name="Hot Teriyaki Glaze" data-price="1.49">
-                                    Hot Teriyaki Glaze - $1.49                                </label><br>
-                                <hr style="margin-top: 0px; margin-bottom: 0px;">
-                                                                <label>
-                                    <input type="checkbox" class="extrasauce-checkbox" name="extrasauce[]" value="114" data-extrasauce-name="Caribbean Citrus" data-price="1.49">
-                                    Caribbean Citrus - $1.49                                </label><br>
-                                <hr style="margin-top: 0px; margin-bottom: 0px;">
-                                                                <label>
-                                    <input type="checkbox" class="extrasauce-checkbox" name="extrasauce[]" value="115" data-extrasauce-name="Hot Caribbean Citrus" data-price="1.49">
-                                    Hot Caribbean Citrus - $1.49                                </label><br>
-                                <hr style="margin-top: 0px; margin-bottom: 0px;">
-                                                                <label>
-                                    <input type="checkbox" class="extrasauce-checkbox" name="extrasauce[]" value="116" data-extrasauce-name="Hot Old Bay" data-price="0">
-                                    Hot Old Bay - $0                                </label><br>
-                                <hr style="margin-top: 0px; margin-bottom: 0px;">
-                                											
-                                                                                                                                                                    </section>                    
-                    <!-- <div class="quantity-control">
-                        <input type="number" id="quantity" name="quantity" value="1" min="1">
-                    </div>
 
-                    <button type="submit" id="submit-button" class="flaticon-shopping-bag mt-2">Add to Cart</button> -->
-                </form>
-            </div>
+                                <!-- Button OUTSIDE the form -->
                                 <div class="col-xxl-12" style="margin: 0;">
                                     <div class="actions actions2">
-                                                <div class="quantity quantity2">
-                                                    <p>Quantity</p>
-
-                                                    <div class="qty-wrapper">
-                                                        <button class="quantity-plus qty-btn"><i class="fa-solid fa-plus"></i></button>
-                                                        <input type="number" class="qty-input" step="1" min="1" max="100" name="quantity" value="1" title="Qty">
-                                                        <button class="quantity-minus qty-btn"><i class="fa-solid fa-minus"></i></button>
-                                                    </div>
-                                                </div>
-                                                <a href="/cart" class="theme-btn">Add to Cart<i class="fa-regular fa-cart-shopping bg-transparent text-white"></i></a>
+                                        <div class="quantity quantity2">
+                                            <p>Quantity</p>
+                                            <div class="qty-wrapper">
+                                                <button type="button" class="quantity-plus qty-btn"><i class="fa-solid fa-plus"></i></button>
+                                                <input type="number" class="qty-input" step="1" min="1" max="100" name="quantity" value="1" title="Qty">
+                                                <button type="button" class="quantity-minus qty-btn"><i class="fa-solid fa-minus"></i></button>
                                             </div>
+                                        </div>
+                                        <button type="button" id="submit-button" class="theme-btn">
+                                            Add to Cart <i class="fa-regular fa-cart-shopping bg-transparent text-white"></i>
+                                        </button>
+                                    </div>
                                 </div>
-                            </div>
-                           `
+                                `;
 
                         modalWapper.innerHTML = modelData;
+
+                        (function initializeAccordion() {
+            const accordions = document.querySelectorAll(".accordian");
+            console.log("accordions", accordions);
+            
+            
+            accordions.forEach(function (accordion) {
+                accordion.addEventListener("click", function () {
+                    this.classList.toggle("active");
+
+                    const content = this.nextElementSibling;
+                    if (content.style.display === "block") {
+                        content.style.display = "none";
+                    }else {
+                        content.style.display = "block";
+                    } 
+                //     if (content.style.maxHeight) {
+                //         content.style.maxHeight = null; 
+                //     } else {
+                //         content.style.maxHeight = content.scrollHeight + "px"; 
+                //   }
+                });
+            });
+        })();
                         console.log("menu",menu);
                         console.log("details",details);
+
+                    // data PassIng...
+
                          const form = document.getElementById("addToCartForm");
-                    
-                    form.addEventListener("submit", function (e) {
-                        e.preventDefault();
-                        const selectedSize = form.querySelector("input[name='size']:checked");
-                        const selectedSauces = [...form.querySelectorAll(".sauce-checkbox:checked")].map(el => ({
-                                                id: el.value,
-                                                name: el.dataset.sauceName,
-                                                price: el.dataset.price,
-                                                }));
-                        const selectedCombo = [...form.querySelectorAll(".extracombotag-checkbox:checked")].map(el => ({
-                                                id: el.value,
-                                                name: el.dataset.extracombotagName,
-                                                price: el.dataset.price,
-                                                }));
+                        document.getElementById("submit-button").addEventListener("click", () => {
+                            const form = document.getElementById("addToCartForm");
+                            if (!form) return console.error("Form not found!");
 
+                            const formData = Object.fromEntries(new FormData(form).entries());
 
+                            // Handle checkboxes (like sauce[] or extrasauce[])
+                            form.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+                                if (cb.checked) {
+                                    if (!formData[cb.name] || typeof formData[cb.name] === "string") {
+                                        formData[cb.name] = []; // Create array if not exists or is string
+                                    }
+                                    formData[cb.name].push(cb.value);
+                                }
+                            });
 
-                        if (!selectedSize) {
-                        alert("Please select a size before adding to cart!");
-                        return;
-                        }
-
-                        const formData = {
-                        menuId: form.menuId.value,
-                        menuName: form.menuName.value,
-                        size: selectedSize ? selectedSize.value : null,
-                        sizePrice: selectedSize ? selectedSize.dataset.price : 0,
-                        sauces: selectedSauces,
-                        combo:selectedCombo,
-                        uuid: form.uuid.value,
-                        };
-
-                        console.log("🛒 Add to Cart:", formData);
-                        
-                    });
+                            console.log("Form data:", formData);
+                        });
 
                         }
 
-                } catch(error){
+                }
+                 catch(error){
                 console.error("Error fetching menu details:", error);
                 }
 
             })
         })
     </script>
+    
 </body>
 
 </html>

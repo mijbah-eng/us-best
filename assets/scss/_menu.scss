@@ -176,6 +176,9 @@
 
         .nav-link {
             // padding: 5px 24px 0px 0px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             margin: 10px 0;
             color: variables.$title-color;
             font-family: variables.$title-font;
@@ -194,6 +197,7 @@
 
             img {
                 margin-right: 10px;
+                margin-bottom: 20px;
             }
 
             &.active {

@@ -983,10 +983,12 @@
     			// height: 770px;
 				padding: 30px 30px 10px 30px;
 				opacity: 0;
-				left: -250px;
+				left: -548px;
 				visibility: hidden;
 				padding: 30px 30px 10px 30px;
-
+				@media (max-width: 1280px) {
+							left: -250px;
+						}
 				.theme-btn{
 					width: 230px;
 					padding: 15px 38px;
