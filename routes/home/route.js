@@ -6,7 +6,7 @@ router.get('/', async(req, res) => {
     const logo = "US Best Chicken & Burger"
     try {
         const apiResponse = await axios.post("https://admin.foodstek.com/api/GetBanner",{
-         "resturantId":1,
+         "resturantId":process.env.RESTURANT_ID,
          "page":"Home"
         })
         const response = apiResponse.data?.data || apiResponse.data;
