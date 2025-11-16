@@ -11,7 +11,7 @@ console.log("server",menuId);
     if (!menuId) return res.status(400).json({ success: false, message: "menuId missing" });
 
     try {
-        const apiResponse = await axios.post("https://admin.foodstek.com/api/getMenuDetails", {
+        const apiResponse = await axios.post(`${API_URI}`, {
             resturantId: 1,
             "menuId":menuId
         });
