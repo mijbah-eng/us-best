@@ -5,7 +5,7 @@ const router = express.Router();
 router.get('/', async(req, res) => {
     const logo = "US Best Chicken & Burger"
     try {
-        const apiResponse = await axios.post(`${API_URI}/GetBanner`,{
+        const apiResponse = await axios.post(`${process.env.API_URI}/GetBanner`,{
          "resturantId":process.env.RESTURANT_ID,
          "page":"Home"
         })

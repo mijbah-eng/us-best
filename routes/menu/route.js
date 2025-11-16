@@ -7,13 +7,13 @@ router.get('/', async(req, res) => {
     const activeCategoryId = req.query.id;
     try {
         // Banner API
-        const apiResponse = await axios.post(`${API_URI}/GetBanner`, {
+        const apiResponse = await axios.post(`${process.env.API_URI}/GetBanner`, {
             resturantId: process.env.RESTURANT_ID,
             page: "Menu"
         });
 
         // Category Menu API
-        const apiResponse2 = await axios.post(`${API_URI}/GetCategoryMenu`, 
+        const apiResponse2 = await axios.post(`${process.env.API_URI}/GetCategoryMenu`, 
             { resturantId: 1 },
             { timeout: 8000 }
         );
