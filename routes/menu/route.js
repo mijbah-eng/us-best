@@ -14,9 +14,7 @@ router.get('/', async(req, res) => {
 
         // Category Menu API
         const apiResponse2 = await axios.post(`${process.env.API_URI}/GetCategoryMenu`, 
-            { resturantId: 1 },
-            { timeout: 8000 }
-        );
+            { resturantId: process.env.RESTURANT_ID });
 
         // Correct variable
         const categoryMenu = apiResponse2.data?.data || apiResponse2.data;

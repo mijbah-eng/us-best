@@ -249,17 +249,17 @@ JS TABLE OF CONTENTS
         -----------------------------------*/
         if ($('.foodMenu-slider').length > 0) {
             const foodMenuSlider = new Swiper(".foodMenu-slider", {
-                spaceBetween: 0,
+                spaceBetween: 30,
                 speed: 2000,
                 loop: true,
                 autoplay: {
                     delay: 2000,
                     disableOnInteraction: false,
                 },
-                 navigation: {
-                    nextEl: ".arrow-next1",
-                    prevEl: ".arrow-prev1",
-                },
+                //  navigation: {
+                //     nextEl: ".arrow-next1",
+                //     prevEl: ".arrow-prev1",
+                // },
                 breakpoints: {
                     1499: {
                         slidesPerView: 4,

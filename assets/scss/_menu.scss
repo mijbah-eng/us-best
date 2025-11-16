@@ -171,7 +171,9 @@
         // width: 900px;
         // }
 
-
+.foodMenu-slider {
+    width: 631px;
+}
 
 
         .nav-link {
@@ -202,7 +204,8 @@
 
             &.active {
                 color: variables.$theme-color;
-                background-color: transparent;
+                background-color: #cdccca45;
+                box-shadow: 0px 1px 1px 0px #6c757d;
             }
 
             @include mixins.breakpoint (max-md) {

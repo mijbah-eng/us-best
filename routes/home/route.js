@@ -9,8 +9,12 @@ router.get('/', async(req, res) => {
          "resturantId":process.env.RESTURANT_ID,
          "page":"Home"
         })
+        const apiResponse2 = await axios.post(`${process.env.API_URI}/GetCategoryMenu`, 
+        { resturantId: 1 });
         const response = apiResponse.data?.data || apiResponse.data;
-        res.render('index', { logo, data: response});
+        const categoryMenu = apiResponse2.data?.data || apiResponse2.data;
+
+        res.render('index', { logo, data: response, categoryMenu});
     } catch (error) {
         console.error("API request failed:", error.message);
         res.status(500).send("Error fetching data");

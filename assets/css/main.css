@@ -62,8 +62,8 @@ Description: Fresheat food & Restaurant Html Template  <
   --body: #fff;
   --black: #000;
   --white: #fff;
-  --theme: #0d3b61;
-  --theme2:#EB0029;
+  --theme: #EB0029;
+  --theme2:#0d3b61;
   --title:#010F1C;
   --dark: #222222;
   --text: #5C6574;
@@ -337,7 +337,7 @@ Description: Fresheat food & Restaurant Html Template  <
   display: inline-block;
   position: relative;
   padding: 13px 25px 13px 25px;
-  background-color: var(--theme);
+  background-color: var(--theme2);
   color: var(--white) !important;
   font-family: var(--body-font);
   font-size: 14px;
@@ -370,7 +370,7 @@ Description: Fresheat food & Restaurant Html Template  <
 }
 .theme-btn:before {
   content: "";
-  background-color: var(--theme2);
+  background-color: var(--theme);
   width: 0;
   height: 50%;
   position: absolute;
@@ -385,7 +385,7 @@ Description: Fresheat food & Restaurant Html Template  <
 }
 .theme-btn:after {
   content: "";
-  background-color: var(--theme2);
+  background-color: var(--theme);
   width: 0;
   height: 50%;
   position: absolute;
@@ -402,7 +402,7 @@ Description: Fresheat food & Restaurant Html Template  <
   margin-left: 10px;
 }
 .theme-btn:hover {
-  background-color: var(--theme2);
+  background-color: var(--theme);
   color: var(--white) !important;
 }
 .theme-btn:hover::before, .theme-btn:hover::after {
@@ -1914,7 +1914,7 @@ Description: Fresheat food & Restaurant Html Template  <
   animation: spinner 1s infinite linear;
   border-radius: 50%;
   border: 3px solid rgba(0, 0, 0, 0.2);
-  border-top-color: var(--theme2);
+  border-top-color: var(--theme);
   height: 9em;
   margin: 0 auto 3.5em auto;
   width: 9em;
@@ -1937,7 +1937,7 @@ Description: Fresheat food & Restaurant Html Template  <
   }
 }
 .preloader .animation-preloader .txt-loading .letters-loading {
-  color: var(--theme2);
+  color: var(--theme);
   position: relative;
 }
 .preloader .animation-preloader .txt-loading .letters-loading:nth-child(2):before {
@@ -1977,7 +1977,7 @@ Description: Fresheat food & Restaurant Html Template  <
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 8px;
-  color: var(--theme2);
+  color: var(--theme);
 }
 .preloader .loader {
   position: fixed;
@@ -2166,12 +2166,12 @@ Description: Fresheat food & Restaurant Html Template  <
 .title-area .sub-title {
   color: var(--theme2);
   font-family: var(--title-font);
-  font-size: 16px;
+  font-size: 20px;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
   text-transform: uppercase;
-  margin-bottom: 15px;
+  margin-bottom: 50px;
 }
 .title-area .title {
   color: var(--title);
@@ -4413,7 +4413,7 @@ Description: Fresheat food & Restaurant Html Template  <
   border-bottom: 1px solid #eeeeee;
 }
 .header-main .main-menu ul li .submenu li a:hover {
-  color: var(--theme) !important;
+  color: #eeeeee !important;
 }
 .header-main .main-menu ul li .submenu li:last-child a {
   border: none;
@@ -8739,6 +8739,9 @@ Description: Fresheat food & Restaurant Html Template  <
   width: 100%;
   margin: auto;
 }
+.food-menu-tab .nav-pills .foodMenu-slider {
+  width: 631px;
+}
 .food-menu-tab .nav-pills .nav-link {
   display: flex;
   flex-direction: column;
@@ -8764,7 +8767,8 @@ Description: Fresheat food & Restaurant Html Template  <
 }
 .food-menu-tab .nav-pills .nav-link.active {
   color: var(--theme);
-  background-color: transparent;
+  background-color: rgba(205, 204, 202, 0.2705882353);
+  box-shadow: 0px 1px 1px 0px #6c757d;
 }
 @media (max-width: 767px) {
   .food-menu-tab .nav-pills .nav-link {
