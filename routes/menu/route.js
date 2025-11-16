@@ -8,7 +8,7 @@ router.get('/', async(req, res) => {
     try {
         // Banner API
         const apiResponse = await axios.post("https://admin.foodstek.com/api/GetBanner", {
-            resturantId: 1,
+            resturantId: process.env.RESTURANT_ID,
             page: "Menu"
         });
 
