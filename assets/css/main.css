@@ -8739,11 +8739,6 @@ Description: Fresheat food & Restaurant Html Template  <
   width: 100%;
   margin: auto;
 }
-@media (min-width: 992px) {
-  .food-menu-tab .nav-pills {
-    width: 900px;
-  }
-}
 .food-menu-tab .nav-pills .nav-link {
   display: flex;
   flex-direction: column;
