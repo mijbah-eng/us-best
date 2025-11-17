@@ -12,10 +12,11 @@ console.log("server",menuId);
 
     try {
         const apiResponse = await axios.post(`${process.env.API_URI}/getMenuDetails`, {
-            resturantId: 1,
+            resturantId: process.env.RESTURANT_ID,
             "menuId":menuId
         });
         const menu = apiResponse.data || null;
+        console.log("menu Item", menu);
         
         res.json({success: true,menu})
     } catch (error) {

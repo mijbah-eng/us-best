@@ -170,7 +170,9 @@
 
                   <% if (filtered.length > 0) { %>
                     <h6>$<%= filtered[0].cprice %> - $<%= filtered[filtered.length - 1].cprice %></h6>
-                  <% } %>
+                    <% } else { %>
+                    <h6>$<%= single_menu.price %></h6>
+                    <% } %>
                 </div>
               <% }) %>
             <% } else { %>
@@ -472,7 +474,20 @@
             `).join("")
         } else {
             sizeOptions = `
-            
+                <div>
+            <input 
+                type="radio" 
+                class="size" 
+                name="size" 
+                value="default" 
+                data-price="${menu.price || 0}"
+                id="size-default"
+                checked   <!-- Default checked -->
+            >
+            <label for="size-default">
+                Default - $${menu.price || 0}
+            </label>
+        </div>
             `
         }
 
@@ -518,11 +533,12 @@
                             <input type="hidden" name="menuName" value="${menu.menuName || ""}" id="menuName"> 
                             <input type="hidden" name="uuid" value="${crypto.randomUUID?.() || "temp-uuid"}" id="uuid"> 
 
-                            ${menu.customeType.length > 0 ? "<h6><span>Select Size</span></h6>" : "" }
+                            
+                            ${menu.type === "defult" ? "" : menu.customeType.length > 0 ? "<h6><span>Select Size</span></h6>" : "" }
                             ${sizeOptions}
                             ${details.sauce.length > 0 ? "<h6><span>Sauce</span></h6>" : "" }
                             ${sauceOptions}
-                            ${details.combotag.length > 0 ? "<h6><span>Combo</span></h6>" : "" }
+                            ${menu.type === "defult" ? "" : details.combotag.length > 0 ? "<h6><span>Combo</span></h6>" : "" }
                             ${combo}
                             ${extraSauce || ""}
                         </form>
@@ -543,7 +559,7 @@
                                             <div class="product-about">
                                                 <div class="title-wrapper">
                                                     <h2 class="product-title">${menu?.menuName || ''}</h2>
-                                                    <div class="price">$ ${menu?.customeType[0].cprice} - $ ${menu?.customeType[menu?.customeType.length -1].cprice}</div>
+                                                    <div class="price">$ ${menu?.type==="defult" ? menu?.price : ` ${menu?.customeType[0].cprice} - $ ${menu?.customeType[menu?.customeType.length -1].cprice} ` } </div>
                                                 </div>
                                                 <p class="text">${menu?.description}</p>
                                             </div>
@@ -601,7 +617,6 @@
             });
         })();
                         console.log("menu",menu);
-                        console.log("details",details);
 
                     // data PassIng...
 
