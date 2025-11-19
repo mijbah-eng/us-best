@@ -18,7 +18,7 @@ console.log("server",menuId);
         const menu = apiResponse.data || null;
         console.log("menu Item", menu);
         
-        res.json({success: true,menu})
+        res.json({success: true,menu})  
     } catch (error) {
         console.error("API request failed:", error.message);
         res.json({success: false, menu: null})

@@ -10,7 +10,7 @@ router.get('/', async(req, res) => {
          "page":"Home"
         })
         const apiResponse2 = await axios.post(`${process.env.API_URI}/GetCategoryMenu`, 
-        { resturantId: 1 });
+        { resturantId: process.env.RESTURANT_ID });
         const response = apiResponse.data?.data || apiResponse.data;
         const categoryMenu = apiResponse2.data?.data || apiResponse2.data;
 
